@@ -1,6 +1,6 @@
 # FoodStorage
 
-![](https://github.com/Tt6588/FoodStorage/blob/develop/app/assets/images/logo.png)
+![](https://github.com/Tt6588/FoodStorage/blob/main/app/assets/images/logo.png)
 
 ## サイト概要
 
