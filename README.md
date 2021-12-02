@@ -44,8 +44,7 @@ ER図
 ![](https://github.com/Tt6588/FoodStorage/blob/main/app/assets/images/ER.png)
 ______
 
-テーブル定義書
-<https://docs.google.com/spreadsheets/d/10FmZDkOiWIvb3mdCN1hfG8qYrdeHzf3wynwkFd6s2ow/edit?usp=sharing>
+[テーブル定義書](https://docs.google.com/spreadsheets/d/10FmZDkOiWIvb3mdCN1hfG8qYrdeHzf3wynwkFd6s2ow/edit?usp=sharing)
 ______
 
 画面遷移図
@@ -55,13 +54,13 @@ ______
 アプリケーション詳細設計　製作中
 ______
 
-フレームワーク　未製作
+[フレームワーク](file:///C:/Users/Tt/Google%20%E3%83%89%E3%83%A9%E3%82%A4%E3%83%96/PF%E8%A3%BD%E4%BD%9C/WF.pdf)
 ______
 
 
 ## チャレンジ要素一覧
 
-<https://docs.google.com/spreadsheets/d/1j7nV8Pv3BNf1XQk1V-Gi0-xEBTy8bwMZgm4S3PuvNp4/edit?usp=sharing>
+[チャレンジ一覧](https://docs.google.com/spreadsheets/d/1j7nV8Pv3BNf1XQk1V-Gi0-xEBTy8bwMZgm4S3PuvNp4/edit?usp=sharing)
 
 ## 開発環境
 
