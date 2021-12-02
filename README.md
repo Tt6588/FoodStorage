@@ -54,7 +54,7 @@ ______
 アプリケーション詳細設計　製作中
 ______
 
-[フレームワーク](file:///C:/Users/Tt/Google%20%E3%83%89%E3%83%A9%E3%82%A4%E3%83%96/PF%E8%A3%BD%E4%BD%9C/WF.pdf)
+[フレームワーク](/app/assets/images/WF.pdf)
 ______
 
 
