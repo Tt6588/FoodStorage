@@ -40,22 +40,15 @@
 
 ## 設計書
 
-ER図
-![](/app/assets/images/ER.png)
-______
+[ER図](/app/assets/images/ER.png)
 
 [テーブル定義書](https://docs.google.com/spreadsheets/d/10FmZDkOiWIvb3mdCN1hfG8qYrdeHzf3wynwkFd6s2ow/edit?usp=sharing)
-______
 
-画面遷移図
-![](/app/assets/images/画面遷移図.png)
-______
+[画面遷移図](/app/assets/images/画面遷移図.png)
 
 アプリケーション詳細設計　製作中
-______
 
 [フレームワーク](/app/assets/images/WF.pdf)
-______
 
 
 ## チャレンジ要素一覧
