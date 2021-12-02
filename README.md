@@ -38,7 +38,18 @@
 
 ## 設計書
 
-<...>
+ER図
+![](https://github.com/Tt6588/FoodStorage/blob/main/app/assets/images/ER.PNG)
+
+テーブル定義書
+______
+
+画面遷移図
+______
+
+アプリケーション詳細設計
+______
+
 
 ## チャレンジ要素一覧
 
