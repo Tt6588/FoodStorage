@@ -39,7 +39,7 @@
 ## 設計書
 
 ER図
-![](https://github.com/Tt6588/FoodStorage/blob/main/app/assets/images/ER.PNG)
+![](https://github.com/Tt6588/FoodStorage/blob/main/app/assets/images/ER.png)
 
 テーブル定義書
 ______
