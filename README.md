@@ -41,14 +41,14 @@
 ## 設計書
 
 ER図
-![](https://github.com/Tt6588/FoodStorage/blob/main/app/assets/images/ER.png)
+![](/app/assets/images/ER.png)
 ______
 
 [テーブル定義書](https://docs.google.com/spreadsheets/d/10FmZDkOiWIvb3mdCN1hfG8qYrdeHzf3wynwkFd6s2ow/edit?usp=sharing)
 ______
 
 画面遷移図
-![](https://github.com/Tt6588/FoodStorage/blob/main/app/assets/images/画面遷移図.png)
+![](/app/assets/images/画面遷移図.png)
 ______
 
 アプリケーション詳細設計　製作中
