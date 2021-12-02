@@ -52,7 +52,7 @@ ______
 ![](https://github.com/Tt6588/FoodStorage/blob/main/app/assets/images/画面遷移図.png)
 ______
 
-アプリケーション詳細設計　未製作
+アプリケーション詳細設計　製作中
 ______
 
 フレームワーク　未製作
