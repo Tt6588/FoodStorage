@@ -28,26 +28,33 @@
 
 ### ターゲットユーザ
 
-・食材の管理が苦手な一人暮らしの方
-・料理などを複数人で行う家族
+食材の管理が苦手な一人暮らしの方
+
+料理などを複数人で行う家族
 
 ### 主な利用シーン
 
-・食材の期限管理
-・買い物をする際の在庫確認
+食材の期限管理
+
+買い物をする際の在庫確認
 
 ## 設計書
 
 ER図
 ![](https://github.com/Tt6588/FoodStorage/blob/main/app/assets/images/ER.png)
+______
 
 テーブル定義書
+<https://docs.google.com/spreadsheets/d/10FmZDkOiWIvb3mdCN1hfG8qYrdeHzf3wynwkFd6s2ow/edit?usp=sharing>
 ______
 
-画面遷移図
+画面遷移図 製作中
 ______
 
-アプリケーション詳細設計
+アプリケーション詳細設計　未製作
+______
+
+フレームワーク　未製作
 ______
 
 
