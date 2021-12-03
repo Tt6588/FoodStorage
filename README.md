@@ -1,6 +1,6 @@
 # FoodStorage
 
-![](https://github.com/Tt6588/FoodStorage/blob/main/app/assets/images/logo.PNG)
+![](/app/assets/images/logo.PNG)
 
 ## サイト概要
 
@@ -46,7 +46,7 @@
 
 [画面遷移図](/app/assets/images/画面遷移図.png)
 
-アプリケーション詳細設計　製作中
+[アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1EfPtUPdA65VMK72zdlf8qvu-TWrp4t0X-Fz3iCPdUF0/edit?usp=sharing)
 
 [フレームワーク](/app/assets/images/WF.pdf)
 
