@@ -1,6 +1,6 @@
 # FoodStorage
 
-![](/app/assets/images/logo.PNG)
+![](/app/assets/images/logo2.PNG)
 
 ## サイト概要
 
