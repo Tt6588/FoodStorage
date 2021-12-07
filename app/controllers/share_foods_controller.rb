@@ -1,0 +1,2 @@
+class ShareFoodsController < ApplicationController
+end

@@ -1,0 +1,2 @@
+module ShareFoodsHelper
+end
