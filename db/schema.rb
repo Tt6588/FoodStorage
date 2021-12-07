@@ -10,7 +10,81 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_073608) do
+ActiveRecord::Schema.define(version: 2021_12_07_053705) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "food_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "genre_id"
+    t.string "food_name"
+    t.text "detail"
+    t.string "image_id"
+    t.string "quantity"
+    t.datetime "deadline_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "group_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notices", force: :cascade do |t|
+    t.integer "visitor_id"
+    t.integer "visitor_group_id"
+    t.integer "visited_id"
+    t.integer "food_id"
+    t.integer "share_food_id"
+    t.integer "comment_id"
+    t.integer "share_comment_id"
+    t.string "action"
+    t.boolean "checked", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "share_comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "share_food_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "share_foods", force: :cascade do |t|
+    t.integer "gro_id"
+    t.integer "genre_id"
+    t.string "food_name"
+    t.text "detail"
+    t.string "image_id"
+    t.string "quantity"
+    t.datetime "deadline_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

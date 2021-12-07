@@ -1,0 +1,2 @@
+class ShareFood < ApplicationRecord
+end
