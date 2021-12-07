@@ -5,9 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :foods, dependent: :destroy
-  has_many :comments, dependent: :destroy　
-  has_many :notises, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :notices, dependent: :destroy
   
   #共有管理用アソシエーション
-  has_many :group_user, dependent: :destroy
+  has_many :group_users, dependent: :destroy
+  # has_many :groups, through: :group_users
 end
