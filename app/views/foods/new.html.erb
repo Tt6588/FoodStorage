@@ -1,0 +1,21 @@
+<%= form_with(model: @food, local: true) do |f| %>
+
+    <div class="form-tag">食材名</div>
+    <%= f.text_field :food_name %>
+
+    <div class="form-tag">食材情報</div>
+    <%= f.text_area :detail %>
+    
+    <div class="form-tag">食材画像</div>
+    <%= f.attachment_field :image %>
+    
+    <%= f.select :quantity, options_for_select((1..10).to_a), include_blank: "個数" %>
+
+    <div class="form-tag">消費期限</div>
+    <%= f.datetime_select :deadline_time %>
+  </div>
+
+ <div class="submit">
+    <%= f.submit '作成' %>
+ </div>
+<% end %>

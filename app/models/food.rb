@@ -5,4 +5,6 @@ class Food < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :notices, dependent: :destroy
   
+  attachment :image
+  
 end

@@ -9,12 +9,12 @@ Rails.application.routes.draw do
     resources :users, only:[:show, :edit, :update, :out]
     
     # 一人用食材管理ルーティング
-    resources :foods, only:[:index, :create,:show, :edit, :update, :destroy]# 食材
+    resources :foods, only:[:new, :index, :create,:show, :edit, :update, :destroy]# 食材
     resources :comments, only:[:create, :destroy]                           # 食材コメント
     
     # 複数人用食材管理ルーティング
     resources :groups, only:[:index, :create, :destroy]                           # グループ機能
-    resources :share_foods, only:[:index, :create,:show, :edit, :update, :destroy]# 共有食材
+    resources :share_foods, only:[:new, :index, :create,:show, :edit, :update, :destroy]# 共有食材
     resources :share_comments, only:[:create, :destroy]                           # 共有食材コメント
     
     # その他追加機能
