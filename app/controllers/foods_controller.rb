@@ -1,14 +1,16 @@
 class FoodsController < ApplicationController
-  
+
   def new
     @food = Food.new
   end
 
   def create
     @food = Food.new(food_params)
-    @food.user_id = currnt_user.id
-    @food.seve
-    redirect_to new_food_path
+    @food.user_id = current_user.id
+    # @food.genre = 1
+     @food.save
+    # binding.pry
+      redirect_to foods_path
   end
 
   def index
@@ -16,22 +18,24 @@ class FoodsController < ApplicationController
   end
 
   def show
+    @food = Food.find(params[:id])
   end
-  
+
   def edit
+    @food = Food.find(params[:id])
   end
-  
+
   def update
   end
 
   def destroy
   end
-  
-  
+
+
   private
-  
+
   def food_params
-    parame.require(:food).permit(:food_name, :detail, :image, :quantity, :deadline_time)
+    params.require(:food).permit(:food_name, :detail, :image_id, :genre, :quantity, :deadline_time)
   end
-  
+
 end

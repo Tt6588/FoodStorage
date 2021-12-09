@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_07_053705) do
+ActiveRecord::Schema.define(version: 2021_12_09_085918) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2021_12_07_053705) do
 
   create_table "foods", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "genre_id"
     t.string "food_name"
     t.text "detail"
     t.string "image_id"
@@ -30,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_12_07_053705) do
     t.datetime "deadline_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "genre"
   end
 
   create_table "genres", force: :cascade do |t|

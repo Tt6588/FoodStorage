@@ -1,0 +1,12 @@
+<h1>foods/show</h1>
+
+<%= link_to "edit", edit_food_path(@food) %>
+
+    <%= attachment_image_tag @food, :image, :fill, 200, 150 ,class:"card-img-top py-2 px-2" %>
+    <p>食材画像：<%= @food.image_id %></p>
+    <p>食材名：<%= @food.food_name %></p>
+    <p>食材情報：<%= @food.detail %></p>
+    <p>ジャンル：<%= @food.genre %></p>
+    <p>管理者名：<%= @food.user.name %></p>
+    <p>個数：<%= @food.quantity %></p>
+    <p>消費期限：<%= @food.deadline_time.strftime('%Y/%m/%d') %></p>
