@@ -14,7 +14,7 @@ class FoodsController < ApplicationController
   end
 
   def index
-    @foods = Food.all
+    @foods = Food.all.order(deadline_time: :asc)
   end
 
   def show
@@ -35,7 +35,7 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:food_name, :detail, :image_id, :genre, :quantity, :deadline_time)
+    params.require(:food).permit(:food_name, :detail, :image, :genre, :quantity, :deadline_time)
   end
 
 end

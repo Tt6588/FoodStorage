@@ -1,13 +1,20 @@
 <h1>foods/index</h1>
+<div class="mt-3">
+  <div class="card-list-container-fluid pt-3">
+    <div class="row">
 
+      <% @foods.each do |food| %>
+        <div class="card mr-2 mt-4 shadow-lg">
+          <div class="card-body">
+            <p><%= attachment_image_tag food, :image, :fill, 300, 250 ,class:"card-img-top py-2 px-2"; %></p>
+            <p>食材名：<%= food.food_name %></p>
+            <p>ジャンル：<%= food.genre %></p>
+            <p>消費期限：<%= food.deadline_time.strftime('%Y/%m/%d') %></p>
+            <%= link_to "show", food_path(food.id) %>
+          </div>
+        </div>
+      <% end %>
 
-<% @foods.each do |food| %>
-  <div>
-    <p><%= attachment_image_tag food, :image, :fill, 300, 250 %></p>
-    <p>食材画像：<%= food.image %></p>
-    <p>食材名：<%= food.food_name %></p>
-    <p>ジャンル：<%= food.genre %></p>
-    <p>消費期限：<%= food.deadline_time.strftime('%Y/%m/%d') %></p>
-    <%= link_to "show", food_path(food.id) %>
+    </div>
   </div>
-<% end %>
+</div>
