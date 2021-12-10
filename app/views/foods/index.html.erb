@@ -6,11 +6,12 @@
       <% @foods.each do |food| %>
         <div class="card mr-2 mt-4 shadow-lg">
           <div class="card-body">
-            <p><%= attachment_image_tag food, :image, :fill, 300, 250 ,class:"card-img-top py-2 px-2"; %></p>
-            <p>食材名：<%= food.food_name %></p>
-            <p>ジャンル：<%= food.genre %></p>
-            <p>消費期限：<%= food.deadline_time.strftime('%Y/%m/%d') %></p>
-            <%= link_to "show", food_path(food.id) %>
+            <%= link_to food_path(food.id) do %>
+              <p><%= attachment_image_tag food, :image, :fill, 300, 250 ,class:"card-img-top py-2 px-2"; %></p>
+            <% end %>
+            <div class="card-title"><%= food.food_name %></div>
+            <div>ジャンル：<%= food.genre %></div>
+            <div>消費期限：<%= food.deadline_time.strftime('%Y/%m/%d') %></div>
           </div>
         </div>
       <% end %>

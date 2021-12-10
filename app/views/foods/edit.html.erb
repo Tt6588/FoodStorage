@@ -2,3 +2,9 @@
 
 <%= link_to "new", new_food_path %>
 <%= link_to "show", food_path(@food.id) %>
+
+
+
+  <% if @food.user == current_user %>
+    <%= link_to "削除", food_path(@food), method: :delete %>
+  <% end %>
