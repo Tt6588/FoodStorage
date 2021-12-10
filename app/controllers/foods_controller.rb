@@ -7,10 +7,12 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     @food.user_id = current_user.id
-    # @food.genre = 1
-     @food.save
-    # binding.pry
+    if @food.save
+                                          # binding.pry
       redirect_to foods_path
+    else 
+      render :new
+      
   end
 
   def index
