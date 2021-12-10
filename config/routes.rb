@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get "/about", to: "homes#about"
     
-    resources :users, only:[:show, :edit, :update, :out]
+    resources :users, only:[:show, :edit, :update]
     
     # 一人用食材管理ルーティング
     resources :foods  do                            # 食材

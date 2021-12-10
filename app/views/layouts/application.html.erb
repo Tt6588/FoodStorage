@@ -12,39 +12,39 @@
     <header class="shadow">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <div><%= link_to image_tag("logo2.PNG", size: "200x70"), root_path%></div>
+          <div><%= link_to image_tag("logo2.PNG", size: "200x70"), root_path, class:"btn btn-outline-secondary"%></div>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="collapse navbar-collapse " id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
-                <li class="fas nav-link text-dark">
-                  マイページ
+                <li class="btn btn-outline-primary mr-1">
+                  Home
                 </li>
                 <li>
-                  <%= link_to "食糧庫", new_food_path, class:"fas nav-link text-dark" %>
+                  <%= link_to "Storage", new_food_path, class:"btn btn-outline-warning mr-1" %>
                 </li>
-                <li class="fas nav-link text-dark">
-                  共有食糧庫
+                <li class="btn btn-outline-danger mr-1">
+                  Share-Storage
                 </li>
                 <li>
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"fas fa-sign-out-alt nav-link text-dark" %>
+                  <%= link_to "log out", destroy_user_session_path, method: :delete, class:"btn btn-outline-dark" %>
                 </li>
               <% else %>
                 <li>
-                  <%= link_to "About", about_path, class:"fas nav-link text-dark" %>
+                  <%= link_to "About", about_path, class:"btn btn-outline-secondary mr-1" %>
                 </li>
-                <li class="fas nav-link text-dark">
+                <li class="btn btn-outline-success mr-1">
                   なんか考えます
                 </li>
                 <li>
-                  <%= link_to "新規登録", new_user_registration_path, class:"fas fa-user-plus nav-link text-dark" %>
+                  <%= link_to "sign up", new_user_registration_path, class:"btn btn-outline-danger mr-1" %>
                 </li>
                 <li>
-                  <%= link_to "ログイン", new_user_session_path, class:"fas fa-sign-in-alt nav-link text-dark" %>
+                  <%= link_to "log in", new_user_session_path, class:"btn btn-outline-primary" %>
                 </li>
               <% end %>
             </ul>
@@ -55,7 +55,7 @@
     </header>
 
     <main style="margin-bottom:80px">
-      <div class="container p-2 bg-warning">
+      <div class="container p-2">
         <p class="text-success"><%= notice %></p>
         <p class="text-danger"><%= alert %></p>
         <%= yield %>

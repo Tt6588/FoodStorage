@@ -19,6 +19,7 @@ class FoodsController < ApplicationController
 
   def show
     @food = Food.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit
