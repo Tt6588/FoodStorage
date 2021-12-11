@@ -1,6 +1,4 @@
-<h3 class="offset-1">食糧庫
-  <%= link_to " -  食材一覧へ  - ", foods_path, class: "btn btn-outline-dark ml-4" %>
-</h3>
+<h3 class="offset-1">食糧庫</h3>
 
 <div class="row">
   <div class="col-md col-lg-4">
@@ -35,7 +33,7 @@
     </div>
 
     <div class="form-group row mt-1">
-      <div class="col-md"></div>
+      <div class="col-md"><%= link_to " -  食材一覧へ  - ", foods_path, class: "btn btn-outline-dark ml-4" %></div>
       <div class="col-md"><%= f.submit '作成', class: "btn btn-outline-success" %></div>
     </div>
   <% end %>
@@ -44,11 +42,17 @@
   <div class="col-sm col-md col-lg-8">
     <%= month_calendar events: @foods do |date, foods| %>
       <%= date.day %>
-
-      <% foods.each do |food| %>
-        <div>
-          <%= link_to food.food_name, food %>
+      <% if foods.present? %>
+      <div class="dropdown">
+        <button type="button" id="dropdown1" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+        <div class="dropdown-menu" aria-labelledby="dropdown1">
+          <% foods.each do |food| %>
+            <div>
+              <%= link_to food.food_name, food, class:"btn btn-light" %>
+            </div>
+          <% end %>
         </div>
+      </div>
       <% end %>
     <% end %>
   </div>

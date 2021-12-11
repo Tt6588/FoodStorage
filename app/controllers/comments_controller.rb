@@ -9,6 +9,8 @@ class CommentsController < ApplicationController
   end
   
   def destroy
+    Comment.find_by(id: params[:id]).destroy
+    redirect_to food_path(params[:food_id])
   end
   
   private
