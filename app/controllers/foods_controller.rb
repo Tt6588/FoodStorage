@@ -2,6 +2,7 @@ class FoodsController < ApplicationController
 
   def new
     @food = Food.new
+    @foods = Food.all
   end
 
   def create
@@ -12,7 +13,7 @@ class FoodsController < ApplicationController
       redirect_to foods_path
     else 
       render :new
-      
+    end
   end
 
   def index
@@ -29,6 +30,12 @@ class FoodsController < ApplicationController
   end
 
   def update
+    @food = Food.find(params[:id])
+    if @food.update(food_params)
+      redirect_to food_path(@food.id)
+    else
+      render :show
+    end
   end
 
   def destroy

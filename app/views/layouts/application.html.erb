@@ -22,7 +22,7 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li>
-                  <%= link_to 'Home', user_path(current_user.id), class:"btn btn-outline-primary mr-1" %>
+                  <%= link_to 'profile', user_path(current_user.id), class:"btn btn-outline-primary mr-1" %>
                 </li>
                 <li>
                   <%= link_to "Storage", new_food_path, class:"btn btn-outline-warning mr-1" %>

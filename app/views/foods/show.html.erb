@@ -1,5 +1,7 @@
-<h3>食材データ</h3>
+<h3 class="offset-1">食材データ
+  <%= link_to " -  食材一覧へ  - ", foods_path, class: "btn btn-outline-dark ml-4" %></h3>
 <div class="row rounded border shadow ">
+  
   <div class="col-sm-auto col-lg-4 mt-2 mb-2">
     <%= attachment_image_tag @food, :image, class:"w-40 img-fluid img-thumbnail shadow" %>
   </div>

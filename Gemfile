@@ -78,3 +78,5 @@ gem 'bootstrap4-kaminari-views'
 
 gem 'pry-byebug'
 gem 'rubocop-airbnb'
+
+gem 'simple_calendar', '~> 2.0'
