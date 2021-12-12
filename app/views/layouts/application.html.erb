@@ -27,8 +27,8 @@
                 <li>
                   <%= link_to "Storage", new_food_path, class:"btn btn-outline-warning mr-1" %>
                 </li>
-                <li class="btn btn-outline-danger mr-1">
-                  Share-Storage
+                <li>
+                  <%= link_to "Share-Storage", groups_path, class:"btn btn-outline-danger mr-1" %>
                 </li>
                 <li>
                   <%= link_to "log out", destroy_user_session_path, method: :delete, class:"btn btn-outline-dark" %>

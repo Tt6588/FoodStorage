@@ -12,5 +12,5 @@ class User < ApplicationRecord
   
   #共有管理用アソシエーション
   has_many :group_users, dependent: :destroy
-  # has_many :groups, through: :group_users
+  has_many :groups, through: :group_users
 end

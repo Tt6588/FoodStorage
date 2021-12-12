@@ -1,0 +1,10 @@
+<h1>グループmennba</h1>
+
+  <div class="group-new-form">
+    <div class="gtoup-new-form-name">
+      <%= @group.name %>
+      <% @group.users.each do |user| %>
+        <%= user.name %>
+      <% end %>
+    </div>
+  </div>

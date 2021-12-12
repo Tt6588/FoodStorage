@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_09_085918) do
+ActiveRecord::Schema.define(version: 2021_12_12_010927) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_12_09_085918) do
     t.boolean "checked", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "group_id"
   end
 
   create_table "share_comments", force: :cascade do |t|
@@ -72,10 +73,10 @@ ActiveRecord::Schema.define(version: 2021_12_09_085918) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "group_id"
   end
 
   create_table "share_foods", force: :cascade do |t|
-    t.integer "gro_id"
     t.integer "genre_id"
     t.string "food_name"
     t.text "detail"
@@ -84,6 +85,7 @@ ActiveRecord::Schema.define(version: 2021_12_09_085918) do
     t.datetime "deadline_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "group_id"
   end
 
   create_table "users", force: :cascade do |t|
