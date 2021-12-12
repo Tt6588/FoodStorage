@@ -10,7 +10,7 @@ class FoodsController < ApplicationController
     @food.user_id = current_user.id
     if @food.save
                                           # binding.pry
-      redirect_to foods_path
+      redirect_to food_path(@food.id)
     else 
       render :new
     end
