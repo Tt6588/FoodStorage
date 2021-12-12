@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
     root to: 'homes#top'
     get "/about", to: "homes#about"
+    get 'search' => 'posts#search'
     
     resources :users, only:[:show, :edit, :update]
     
@@ -14,9 +15,10 @@ Rails.application.routes.draw do
     end
     
     # 複数人用食材管理ルーティング
-    resources :groups, only:[:index, :create, :show, :edit, :update, :destroy] # グループ機能
-    resources :share_foods do                             # 共有食材
-      resources :share_comments, only:[:create, :destroy] # 共有食材コメント
+    resources :groups, only:[:index, :create, :show, :edit, :update, :destroy] do # グループ機能
+      resources :share_foods do                             # 共有食材
+        resources :share_comments, only:[:create, :destroy] # 共有食材コメント
+      end
     end
     
     # その他追加機能

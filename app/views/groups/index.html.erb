@@ -15,14 +15,13 @@
 
 
 <div class="chat-group">
-　  <h1>チャットグループ一覧</h1>
-    <div class="group-search">
-        <div class="group-search-form">
-            <%= form_with url: groups_path do |f| %>
-                <%= f.text_field :keyword, placeholder: "グループ検索", class: "group-search-form-input" %>
-                <%= f.submit '検索' %>
-            <% end %>
-        </div>
+    <div>
+        <!--<div>-->
+        <!--    <%= form_with url: groups_path, local: true  do |f| %>-->
+        <!--        <%= f.text_field :keyword, placeholder: "グループ検索", class: "group-search-form-input" %>-->
+        <!--        <%= f.submit '検索' %>-->
+        <!--    <% end %>-->
+        <!--</div>-->
 
         <% if @group_joining == [] %>
             <%= @group_lists_none %>
@@ -34,6 +33,7 @@
                             <li>
                                 <%= link_to "/groups/#{list.id}" do %>
                                     <%= list.name %>(<%= list.user_ids.count %>)
+                                    <%= link_to '共有管理へ', new_group_share_food_path(list.id) %> ###
                                     <%= link_to '編集', edit_group_path(list.id), method: :get %>
                                     <%= link_to '削除', "/groups/#{list.id}", method: :delete %>
                                 <!--< end %>-->

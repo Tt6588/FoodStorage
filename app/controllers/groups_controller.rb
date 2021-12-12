@@ -45,12 +45,13 @@ class GroupsController < ApplicationController
   
   
   private
-    def set_group
-      @group = Group.find(params[:id])
-    end
+  
+  def set_group
+    @group = Group.find(params[:id])
+  end
 
-    def group_params
-      params.require(:group).permit(:name, :owner_id,  user_ids: [])
-    end
+  def group_params
+    params.require(:group).permit(:name, :owner_id,  user_ids: [])
+  end
   
 end

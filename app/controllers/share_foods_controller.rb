@@ -1,2 +1,60 @@
 class ShareFoodsController < ApplicationController
+  
+  def new
+    @group = Group.find(params[:group_id])
+    @share_food = ShareFood.new
+    @share_foods = ShareFood.all
+  end
+
+  def create
+    @share_food = ShareFood.new(share_food_params)
+    @share_food.group_id = Group.id
+    if @share_food.save
+                                          # binding.pry
+      redirect_to group_share_food_path(@share_food.id)
+    else 
+      render :new
+    end
+  end
+
+  def index
+    @group = Group.find(params[:id])
+    @share_foods = ShareFoods.all.order(deadline_time: :asc)
+  end
+
+  def show
+    @group = Group.find(params[:id])
+    @share_food = ShareFood.find(params[:id])
+    @Share_comment = ShareComment.new
+  end
+
+  def edit
+    @group = Group.find(params[:id])
+    @share_food = ShareFood.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    @share_food = ShareFood.find(params[:id])
+    if @share_food.update(share_food_params)
+      redirect_to group_share_food_path(@share_food.id)
+    else
+      render :show
+    end
+  end
+
+  def destroy
+    @group = Group.find(params[:id])
+    @share_food = ShareFood.find(params[:id])
+    @share_food.destroy
+    redirect_to group_share_foods_path
+  end
+
+
+  private
+
+  def share_food_params
+    params.require(:share_food).permit(:food_name, :detail, :image, :genre, :quantity, :deadline_time)
+  end
+
 end
