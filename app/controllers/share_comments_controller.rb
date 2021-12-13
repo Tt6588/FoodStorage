@@ -1,5 +1,5 @@
 class ShareCommentsController < ApplicationController
-  
+
   def create
     group = Group.find(params[:group_id])
     share_food = ShareFood.find(params[:share_food_id])
@@ -8,17 +8,19 @@ class ShareCommentsController < ApplicationController
     share_comment.group_id = group.id
     share_comment.share_food_id = share_food.id
     share_comment.save
-    redirect_to share_food_path(share_food)
+    redirect_to "/groups/#{group.id}/share_foods/#{share_food.id}"
   end
-  
+
   def destroy
+    group = Group.find(params[:group_id])
+    share_food = ShareFood.find(params[:share_food_id])
     ShareComment.find_by(id: params[:id]).destroy
-    redirect_to group_share_food_path(params[:share_food_id])
+    redirect_to "/groups/#{group.id}/share_foods/#{share_food.id}"
   end
-  
+
   private
   def share_comment_params
     params.require(:share_comment).permit(:comment)
   end
-  
+
 end

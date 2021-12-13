@@ -1,5 +1,5 @@
 class ShareFoodsController < ApplicationController
-  
+
   def new
     @group = Group.find(params[:group_id])
     @share_food = ShareFood.new
@@ -13,7 +13,7 @@ class ShareFoodsController < ApplicationController
     if @share_food.save
                                           # binding.pry
       redirect_to "/groups/#{@group.id}/share_foods/#{@share_food.id}", notice: '食材を追加しました。'
-    else 
+    else
       render :new
     end
   end
@@ -26,7 +26,7 @@ class ShareFoodsController < ApplicationController
   def show
     @group = Group.find(params[:group_id])
     @share_food = ShareFood.find(params[:id])
-    @Share_comment = ShareComment.new
+    @share_comment = ShareComment.new
   end
 
   def edit

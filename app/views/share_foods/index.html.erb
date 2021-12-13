@@ -11,9 +11,6 @@
             <%= link_to  "/groups/#{@group.id}/share_foods/#{share_food.id}" do %>
               <p><%= attachment_image_tag share_food, :image, :fill, 300, 250 ,class:"card-img-top py-2 px-2" %></p>
             <% end %>
-            
-              <%= share_food.id %>
-            
             <div class="card-title"><%= share_food.food_name %></div>
             <div><%= "#{share_food.share_comments.count} コメント" %></div>
             <div>ジャンル：<%= share_food.genre %></div>

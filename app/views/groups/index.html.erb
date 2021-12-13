@@ -7,7 +7,7 @@
     <div>
       <%= f.label :name, 'グループ名' %>
       <%= f.text_field :name, class: 'form-control' %>
-      <% f.collection_check_boxes :user_ids, current_user, :id, :name %> ###
+      <%= f.collection_check_boxes :user_ids, User.all, :id, :name %>
     </div>
     <%= f.submit '新規作成', class: "btn btn-primary" %>
   </div>
@@ -16,12 +16,18 @@
 
 <div class="chat-group">
     <div>
-        <!--<div>-->
-        <!--    <%= form_with url: groups_path, local: true  do |f| %>-->
-        <!--        <%= f.text_field :keyword, placeholder: "グループ検索", class: "group-search-form-input" %>-->
-        <!--        <%= f.submit '検索' %>-->
-        <!--    <% end %>-->
-        <!--</div>-->
+        <div>
+            <%= form_with url: groups_search_path, method: :get, local: true  do |f| %>-->
+            <%= f.text_field :keyword, placeholder: "グループ検索", class: "group-search-form-input" %>-->
+            <%= f.submit '検索' %>
+            <% end %>
+        </div>
+
+        <% if @results %>
+            <% @results.each do |result| %>
+                <%= result.name %>
+            <% end %>
+        <% end %>
 
         <% if @group_joining == [] %>
             <%= @group_lists_none %>
@@ -33,10 +39,12 @@
                             <li>
                                 <%= link_to "/groups/#{list.id}" do %>
                                     <%= list.name %>(<%= list.user_ids.count %>)
-                                    <%= link_to '共有管理へ', new_group_share_food_path(list.id) %> ###
-                                    <%= link_to '編集', edit_group_path(list.id), method: :get %>
-                                    <%= link_to '削除', "/groups/#{list.id}", method: :delete %>
                                 <% end %>
+                                <%= link_to '参加', groups_join_path(group_id: list.id) %>
+                                <%= link_to '共有管理へ', new_group_share_food_path(list.id) %> ###
+                                <%= link_to '編集', edit_group_path(list.id), method: :get %>
+                                <%= link_to '削除', "/groups/#{list.id}", method: :delete %>
+
                             </li>
                         <!--< end %>-->
                     <% end %>
