@@ -1,4 +1,4 @@
-<h3 class="offset-1">食材データ
+<h3 class="offset-1">食材データ-<%= @group.name %>
   <%= link_to " -  一覧へ  - ", group_share_foods_path, class: "btn btn-outline-primary ml-4" %></h3>
   
 <div class="row rounded border shadow ">
@@ -17,15 +17,11 @@
     </div>
     <div class="row">
       <div class="col-3">コメント</div>
-      <div class="col-auto"><%= @share_food.comments.count %>件</div>
+      <div class="col-auto"><%= @share_food.share_comments.count %>件</div>
     </div>
     <div class="row">
       <div class="col-3">ジャンル</div>
       <div class="col-auto"><%= @share_food.genre %></div>
-    </div>
-    <div class="row">
-      <div class="col-3">管理者名</div>
-      <div class="col-auto"><%= @share_food.user.name %></div>
     </div>
     <div class="row">
       <div class="col-3">個数</div>
@@ -37,13 +33,13 @@
     </div>
     <div class="row">
       <div class="col-3"></div>
-      <div class="col-auto"><%= link_to "編集", edit_group_share_food_path(@share_food), class:"btn btn-outline-dark btn-sm mt-3" %></div>
+      <div class="col-auto"><%= link_to "編集", "/groups/#{@group.id}/share_foods/#{@share_food.id}/edit", class:"btn btn-outline-dark btn-sm mt-3" %></div>
     </div>
   </div>
         
   <div class="col-sm col-lg-4 mt-2 mb-5">
     <div class="position-relative" style="top:30px;">
-      <%= form_with(model:[@share_food, @share_comment], local: true) do |f| %>
+      <%= form_with(model: @share_comment, url:"/groups/#{@group.id}/share_foods/#{@share_food.id}/share_comments", local: true) do |f| %>
         <%= f.text_area :comment, rows:'5',placeholder: "例：カレーに使用します。使わないで！", class:"mb-1 form-control" %>
         <%= f.submit "コメント追加" , class:"btn btn-dark btn-sm"%>
       <% end %>
@@ -55,14 +51,14 @@
   <% @share_food.share_comments.each do |share_comment| %>
     <div class="row rounded border shadow-sm text-wrap">
       
-      <!--共有食材管理でコメントユーザーに変更して使用します-->
-      <!--<div class="col-1">-->
-      <!--  <%= attachment_image_tag @share_food, :image, :fill, 50, 50, class:" img-fluid img-thumbnail shadow" %> -->
-      <!--</div>-->
-      <!--イメージにuserへのパス-->
+      共有食材管理でコメントユーザーに変更して使用します
+      <div class="col-1">
+        <%= attachment_image_tag @share_food, :image, :fill, 50, 50, class:" img-fluid img-thumbnail shadow" %> 
+      </div>
+      イメージにuserへのパス
       
       <div class="col-1">
-        <%= share_comment.created_at.strftime('%m/%d') %>
+        %<= share_comment.created_at.strftime('%m/%d') %>
       </div>
       <div class="col-auto">
         <p><%= share_comment.comment %></p>

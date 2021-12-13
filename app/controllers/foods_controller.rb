@@ -10,7 +10,7 @@ class FoodsController < ApplicationController
     @food.user_id = current_user.id
     if @food.save
                                           # binding.pry
-      redirect_to food_path(@food.id)
+      redirect_to food_path(@food.id), notice: '食材を登録しました。'
     else 
       render :new
     end
@@ -32,7 +32,7 @@ class FoodsController < ApplicationController
   def update
     @food = Food.find(params[:id])
     if @food.update(food_params)
-      redirect_to food_path(@food.id)
+      redirect_to food_path(@food.id), notice: '食材を更新しました。'
     else
       render :show
     end
@@ -40,8 +40,11 @@ class FoodsController < ApplicationController
 
   def destroy
     @food = Food.find(params[:id])
-    @food.destroy
-    redirect_to foods_path
+    if@food.destroy
+      redirect_to foods_path, notice: '食材を削除しました。'
+    else
+      render :edit
+    end
   end
 
 

@@ -1,8 +1,8 @@
-<h3 class="offset-1">食材編集
-  <%= link_to " -  食材データへ  - ", group_share_food_path(@share_food.id), class: "btn btn-outline-primary ml-4" %></h3>
+<h3 class="offset-1">食材編集-<%= @group.name %>
+  <%= link_to " -  食材データへ  - ", "/groups/#{@group.id}/share_foods/#{@share_food.id}", class: "btn btn-outline-primary ml-4" %></h3>
 <div class="row rounded border shadow ">
   <div class="col-sm-12 col-lg mt-2 mb-2">
-    <%= form_with model: @share_food, local: true do |f| %>
+    <%= form_with model: [@group, @share_food], local: true do |f| %>
       <div class="form-group row">
         <div class="col-3">食材名</div>
         <div class="col-auto"><%= f.text_field :food_name, class: "form-control" %></div>
@@ -31,9 +31,7 @@
         <div class="col-3"></div>
         <div class="col-4">
           <%= f.submit "update", class:"btn btn-outline-success btn-sm mt-3" %>
-          <!--<% if @share_food.user == current_user %>-->
-            <%= link_to "delete", group_share_food_path(@share_food), method: :delete, class:"btn btn-outline-danger btn-sm mt-3" %>
-          <!--<% end %>-->
+          <%= link_to "delete", "/groups/#{@group.id}/share_foods/#{@share_food.id}", method: :delete, class:"btn btn-outline-danger btn-sm mt-3" %>
         </div>
       </div>
     <% end %>

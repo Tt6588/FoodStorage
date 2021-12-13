@@ -1,8 +1,11 @@
 class ShareCommentsController < ApplicationController
   
   def create
+    group = Group.find(params[:group_id])
     share_food = ShareFood.find(params[:share_food_id])
-    share_comment = current_user.comments.new(share_comment_params)
+    share_comment = ShareComment.new(share_comment_params)
+    share_comment.user_id = current_user.id
+    share_comment.group_id = group.id
     share_comment.share_food_id = share_food.id
     share_comment.save
     redirect_to share_food_path(share_food)
