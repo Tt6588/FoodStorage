@@ -1,19 +1,19 @@
-<h3 class="offset-2">Profile</h3>
+<h3 class="offset-2">管理者プロフィール</h3>
 
 <div class="col-8 offset-2 mt-5">
 
     <div class="form-group row">
-      <div class="col-4">profile_image</div>
-      <div class="col-8"><%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %></div>
+      <div class="col-4">プロフィール画像</div>
+      <div class="col-8"><%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg", class:"rounded-circle img-thumbnail" %></div>
     </div>
 
     <div class="form-group row mt-3">
-      <div class="col-4">Name</div>
+      <div class="col-4">名前</div>
       <div class="col-8"><%= @user.name%></div>
     </div>
 
     <div class="form-group row mt-3">
-      <div class="col-4">Email</div>
+      <div class="col-4">メールアドレス</div>
       <div class="col-8"><%= @user.email %></div>
     </div>
     

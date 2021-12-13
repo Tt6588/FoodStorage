@@ -48,7 +48,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdown1">
           <% share_foods.each do |share_food| %>
             <div>
-              <!--<= link_to group_share_food.food_name, share_food, class:"btn btn-light" %>-->
+              <%= link_to share_food.food_name, group_share_foods_path, class:"btn btn-light" %>
             </div>
           <% end %>
         </div>

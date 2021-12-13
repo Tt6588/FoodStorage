@@ -25,7 +25,7 @@ class ShareFoodsController < ApplicationController
 
   def show
     @group = Group.find(params[:group_id])
-    @share_food = ShareFood.find(params[:share_food_id])
+    @share_food = ShareFood.find(params[:id])
     @Share_comment = ShareComment.new
   end
 
