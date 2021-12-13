@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md col-lg-4">
-  <%= form_with model: @share_food, local: true do |f| %> 
+  <%= form_with model: [@group, @share_food], local: true do |f| %>
     <div class="form-group row mt-3">
       <div class="col-md">食材名</div>
       <div class="col-md"><%= f.text_field :food_name, class: "form-control" %></div>
@@ -33,7 +33,7 @@
     </div>
 
     <div class="form-group row mt-1">
-      <div class="col-md"><%= link_to " -  食材一覧へ  - ", group_share_foods_path, class: "btn btn-outline-dark ml-4" %></div>
+      <div class="col-md"><%= link_to " -  食材一覧へ  - ", group_share_foods_path(@group.id), class: "btn btn-outline-dark ml-4" %></div>
       <div class="col-md"><%= f.submit '作成', class: "btn btn-outline-success" %></div>
     </div>
   <% end %>
@@ -48,7 +48,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdown1">
           <% share_foods.each do |share_food| %>
             <div>
-              <%= link_to group_share_food.food_name, share_food, class:"btn btn-light" %>
+              <!--<= link_to group_share_food.food_name, share_food, class:"btn btn-light" %>-->
             </div>
           <% end %>
         </div>

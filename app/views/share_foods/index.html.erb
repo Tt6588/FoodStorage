@@ -7,11 +7,11 @@
       <% @share_foods.each do |share_food| %>
         <div class="card mr-2 mt-4 shadow-lg">
           <div class="card-body">
-            <%= link_to group_share_food_path(share_food.id) do %>
+            <!--<= link_to group_share_food_path(share_food.id) do %>-->
               <p><%= attachment_image_tag share_food, :image, :fill, 300, 250 ,class:"card-img-top py-2 px-2" %></p>
-            <% end %>
+            <!--< end %>-->
             <div class="card-title"><%= share_food.food_name %></div>
-            <div><%= "#{share_food.comments.count} コメント" %></div>
+            <div><%= "#{share_food.share_comments.count} コメント" %></div>
             <div>ジャンル：<%= share_food.genre %></div>
             <div>消費期限：<%= share_food.deadline_time.strftime('%Y/%m/%d') %></div>
           </div>

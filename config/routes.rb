@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     
     # 複数人用食材管理ルーティング
     resources :groups, only:[:index, :create, :show, :edit, :update, :destroy] do # グループ機能
-      resources :share_foods do                             # 共有食材
+      resources :share_foods, only:[:new, :index, :create, :show, :edit, :update, :destroy] do                             # 共有食材
         resources :share_comments, only:[:create, :destroy] # 共有食材コメント
       end
     end

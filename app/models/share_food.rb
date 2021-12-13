@@ -7,5 +7,9 @@ class ShareFood < ApplicationRecord
   
   
   attachment :image
+  
+  def start_time #カレンダー表示させるため追加
+    self.deadline_time
+  end
 
 end

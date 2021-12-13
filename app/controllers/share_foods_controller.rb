@@ -7,8 +7,9 @@ class ShareFoodsController < ApplicationController
   end
 
   def create
+    @group = Group.find(params[:group_id])
     @share_food = ShareFood.new(share_food_params)
-    @share_food.group_id = Group.id
+    @share_food.group_id = @group.id
     if @share_food.save
                                           # binding.pry
       redirect_to group_share_food_path(@share_food.id)
@@ -18,23 +19,22 @@ class ShareFoodsController < ApplicationController
   end
 
   def index
-    @group = Group.find(params[:id])
-    @share_foods = ShareFoods.all.order(deadline_time: :asc)
+    @group = Group.find(params[:group_id])
+    @share_foods = ShareFood.all.order(deadline_time: :asc)
   end
 
   def show
-    @group = Group.find(params[:id])
-    @share_food = ShareFood.find(params[:id])
+    @group = Group.find(params[:group_id])
+    @share_food = ShareFood.find(params[:share_food_id])
     @Share_comment = ShareComment.new
   end
 
   def edit
-    @group = Group.find(params[:id])
     @share_food = ShareFood.find(params[:id])
   end
 
   def update
-    @group = Group.find(params[:id])
+    @group = Group.find(params[:group_id])
     @share_food = ShareFood.find(params[:id])
     if @share_food.update(share_food_params)
       redirect_to group_share_food_path(@share_food.id)
@@ -44,7 +44,6 @@ class ShareFoodsController < ApplicationController
   end
 
   def destroy
-    @group = Group.find(params[:id])
     @share_food = ShareFood.find(params[:id])
     @share_food.destroy
     redirect_to group_share_foods_path

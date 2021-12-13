@@ -2,7 +2,7 @@
   <%= link_to " -  食材データへ  - ", group_share_food_path(@share_food.id), class: "btn btn-outline-primary ml-4" %></h3>
 <div class="row rounded border shadow ">
   <div class="col-sm-12 col-lg mt-2 mb-2">
-    <%= form_with model:@share_food, local: true do |f| %>
+    <%= form_with model: @share_food, local: true do |f| %>
       <div class="form-group row">
         <div class="col-3">食材名</div>
         <div class="col-auto"><%= f.text_field :food_name, class: "form-control" %></div>
