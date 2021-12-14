@@ -1,10 +1,10 @@
 <h1>グループmennba</h1>
-
-  <div class="group-new-form">
-    <div class="gtoup-new-form-name">
+<%= link_to 'グループへ', groups_path %>
       <%= @group.name %>
       <% @group.users.each do |user| %>
-        <%= user.name %>
+       <div> <%= user.name %>
+        <% if @group.owner_id == user.id %>
+        aaa
+        <% end %>
+        </div>
       <% end %>
-    </div>
-  </div>

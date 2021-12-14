@@ -48,12 +48,12 @@ class GroupsController < ApplicationController
 
   def join
     group_id = params[:group_id].to_i
-    @group_user = GroupUser.find_by(user_id: current_user.id,  group_id: group_id)
+    group_user = GroupUser.find_by(user_id: current_user.id,  group_id: group_id)
 
     if group_user
       GroupUser.destroy(group_user.id)
     else
-      GroupUser.create(user_id: current_user.id,  group_id: @group_id)
+      GroupUser.create(user_id: current_user.id,  group_id: group_id)
     end
       redirect_to groups_path
   end

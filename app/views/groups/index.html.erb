@@ -1,6 +1,4 @@
-<h3>group/index</h3>
-
-<h3>グループ作成</h3>
+<h3 class="offset-1">共有食糧庫作成</h3>
 
 <%= form_with(model: @group, local: true) do |f| %>
   <div>
@@ -14,46 +12,61 @@
 
 
 <div class="chat-group">
+  <div>
     <div>
-        <div>
-            <%= form_with url: groups_search_path, method: :get, local: true  do |f| %>-->
-            <%= f.text_field :keyword, placeholder: "グループ検索", class: "group-search-form-input" %>-->
-            <%= f.submit '検索' %>
-            <% end %>
-        </div>
-
-        <% if @results %>
-            <% @results.each do |result| %>
-                <%= result.name %>
-            <% end %>
-        <% end %>
-
-        <% if @group_joining == [] %>
-            <%= @group_lists_none %>
-        <% else %>
-            <div>
-                <ul>
-                    <% @group_lists.each do |list| %>
-                        <!--< if list.user_ids.include?(current_user.id) %>-->
-                            <li>
-                                <%= link_to "/groups/#{list.id}" do %>
-                                    <%= list.name %>(<%= list.user_ids.count %>)
-                                <% end %>
-                                <% if @group_user == current_user %>
-                                  <%= link_to '退出', groups_join_path(group_id: list.id) %>
-                                <% else %>
-                                  <%= link_to '参加', groups_join_path(group_id: list.id) %>
-                                <% end %>
-                                <%= link_to '共有管理へ', new_group_share_food_path(list.id) %> ###
-                                <%= link_to '編集', edit_group_path(list.id), method: :get %>
-                                <%= link_to '削除', "/groups/#{list.id}", method: :delete %>
-
-                            </li>
-                        <!--< end %>-->
-                    <% end %>
-                </ul>
-            </div>
-        <% end %>
-
+      <%= form_with url: groups_search_path, method: :get, local: true  do |f| %>-->
+        <%= f.text_field :keyword, placeholder: "グループ検索", class: "group-search-form-input" %>-->
+        <%= f.submit '検索' %>
+      <% end %>
     </div>
+    <div>
+      <% if @results %>
+        <% @results.each do |result| %>
+              <%= link_to "/groups/#{result.id}" do %>
+                <%= result.name %>(<%= result.user_ids.count %>)
+              <% end %>
+              <% if GroupUser.exists?(group_id: result.id, user_id: current_user.id) %>
+                <%= link_to '退出', groups_join_path(group_id: result.id) %>
+                <%= link_to '共有管理へ', new_group_share_food_path(result.id) %>
+              <% else %>
+                <%= link_to '参加', groups_join_path(group_id: result.id) %>
+              <% end %>
+              <% if result.owner_id == current_user.id %>
+                <%= link_to '編集', edit_group_path(result.id), method: :get %>
+                <%= link_to '削除', "/groups/#{result.id}", method: :delete %>
+              <% end %>
+    </div>
+        <% end %>
+      <% end %>
+    </div>
+    
+    <h2>参加中の食糧庫</h2>
+    <% if @group_joining == [] %>
+      <%= @group_lists_none %>
+    <% else %>
+    <div>
+      <ul>
+        <% @group_lists.each do |list| %>
+          <% if list.user_ids.include?(current_user.id) %>
+            <li>
+              <%= link_to "/groups/#{list.id}" do %>
+                <%= list.name %>(<%= list.user_ids.count %>)
+              <% end %>
+              <% if GroupUser.exists?(group_id: list.id, user_id: current_user.id) %>
+                <%= link_to '退出', groups_join_path(group_id: list.id) %>
+                <%= link_to '共有管理へ', new_group_share_food_path(list.id) %>
+              <% else %>
+                <%= link_to '参加', groups_join_path(group_id: list.id) %>
+              <% end %>
+              <% if list.owner_id == current_user.id %>
+                <%= link_to '編集', edit_group_path(list.id), method: :get %>
+                <%= link_to '削除', "/groups/#{list.id}", method: :delete %>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+  </div>
 </div>
