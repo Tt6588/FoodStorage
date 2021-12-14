@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
+ devise_scope :user do
+    # TIPS: ユーザー登録しっぱいのリダイレクトのエラーを防ぐ https://github.com/heartcombo/devise/blob/master/app/controllers/devise/registrations_controller.rb
+    get '/users', to: 'devise/registrations#new'
+  end
 
     root to: 'homes#top'
     get "/about", to: "homes#about"
