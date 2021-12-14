@@ -7,7 +7,6 @@
     <div>
       <%= f.label :name, 'グループ名' %>
       <%= f.text_field :name, class: 'form-control' %>
-      <%= f.collection_check_boxes :user_ids, User.all, :id, :name %>
     </div>
     <%= f.submit '新規作成', class: "btn btn-primary" %>
   </div>
@@ -40,7 +39,11 @@
                                 <%= link_to "/groups/#{list.id}" do %>
                                     <%= list.name %>(<%= list.user_ids.count %>)
                                 <% end %>
-                                <%= link_to '参加', groups_join_path(group_id: list.id) %>
+                                <% if @group_user == current_user %>
+                                  <%= link_to '退出', groups_join_path(group_id: list.id) %>
+                                <% else %>
+                                  <%= link_to '参加', groups_join_path(group_id: list.id) %>
+                                <% end %>
                                 <%= link_to '共有管理へ', new_group_share_food_path(list.id) %> ###
                                 <%= link_to '編集', edit_group_path(list.id), method: :get %>
                                 <%= link_to '削除', "/groups/#{list.id}", method: :delete %>

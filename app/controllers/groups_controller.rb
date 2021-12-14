@@ -10,7 +10,8 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
     if @group.save
-        redirect_to groups_path, notice: 'グループを作成しました。'
+      GroupUser.create(user_id: current_user.id,  group_id: @group.id)
+      redirect_to groups_path, notice: 'グループを作成しました。'
     else
         render :index
     end
@@ -47,19 +48,12 @@ class GroupsController < ApplicationController
 
   def join
     group_id = params[:group_id].to_i
-
-    group_user = GroupUser.find_by(
-      user_id: current_user.id,
-      group_id: group_id
-      )
+    @group_user = GroupUser.find_by(user_id: current_user.id,  group_id: group_id)
 
     if group_user
       GroupUser.destroy(group_user.id)
     else
-      GroupUser.create(
-        user_id: current_user.id,
-        group_id: group_id
-        )
+      GroupUser.create(user_id: current_user.id,  group_id: @group_id)
     end
       redirect_to groups_path
   end

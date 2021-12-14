@@ -20,6 +20,8 @@ class ShareFoodsController < ApplicationController
 
   def index
     @group = Group.find(params[:group_id])
+    @share_food_addition = ShareFood.where(group_id: @group.id)
+    @share_foods_none = "食材を追加してください。"
     @share_foods = ShareFood.all.order(deadline_time: :asc)
   end
 

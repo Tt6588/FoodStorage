@@ -5,19 +5,25 @@
   <div class="card-list-container-fluid pt-3">
     <div class="row">
 
-      <% @share_foods.each do |share_food| %>
-        <div class="card mr-2 mt-4 shadow-lg">
-          <div class="card-body">
-            <%= link_to  "/groups/#{@group.id}/share_foods/#{share_food.id}" do %>
-              <p><%= attachment_image_tag share_food, :image, :fill, 300, 250 ,class:"card-img-top py-2 px-2" %></p>
+        <% if @share_food_addition == [] %>
+            <%= @share_foods_none %>
+        <% else %>
+          <% @share_foods.each do |share_food| %>
+            <% if share_food.group_id == @group.id %>
+              <div class="card mr-2 mt-4 shadow-lg">
+                <div class="card-body">
+                  <%= link_to  "/groups/#{@group.id}/share_foods/#{share_food.id}" do %>
+                    <p><%= attachment_image_tag share_food, :image, :fill, 300, 250 ,class:"card-img-top py-2 px-2" %></p>
+                  <% end %>
+                  <div class="card-title"><%= share_food.food_name %></div>
+                  <div><%= "#{share_food.share_comments.count} コメント" %></div>
+                  <div>ジャンル：<%= share_food.genre %></div>
+                  <div>消費期限：<%= share_food.deadline_time.strftime('%Y/%m/%d') %></div>
+                </div>
+              </div>
             <% end %>
-            <div class="card-title"><%= share_food.food_name %></div>
-            <div><%= "#{share_food.share_comments.count} コメント" %></div>
-            <div>ジャンル：<%= share_food.genre %></div>
-            <div>消費期限：<%= share_food.deadline_time.strftime('%Y/%m/%d') %></div>
-          </div>
-        </div>
-      <% end %>
+          <% end %>
+        <% end %>
 
     </div>
   </div>
