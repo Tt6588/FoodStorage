@@ -11,4 +11,10 @@ class Food < ApplicationRecord
     self.deadline_time
   end
   
+  validates :food_name, presence: true, length: { maximum: 15 } 
+  validates :detail, length: { in: 0..300 } 
+  validates :quantity, presence: true
+  validates :deadline_time, presence: true
+  validates :genre, presence: true, length: { maximum: 15 } 
+  
 end
