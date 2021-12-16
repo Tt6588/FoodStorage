@@ -1,72 +1,114 @@
-<h3 class="offset-1">共有食糧庫作成</h3>
+<h3 class="offset-1 mb-4">管理者グループ</h3>
 
-<%= form_with(model: @group, local: true) do |f| %>
-  <div>
-    <div>
-      <%= f.label :name, 'グループ名' %>
-      <%= f.text_field :name, class: 'form-control' %>
+<div class="">
+  <!--グループ作成機能-->
+  <%= form_with(model: @group, local: true) do |f| %>
+    <div class="input-group mb-3">
+      <%= f.text_field :name, type:"text", class:"form-control", placeholder:"管理者グループ新規作成" %>
+      <div class="input-group-append">
+        <%= f.submit '-新規作成-', class: "btn btn-outline-primary" %>
+      </div>
     </div>
-    <%= f.submit '新規作成', class: "btn btn-primary" %>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
-
-<div class="chat-group">
-  <div>
-    <div>
-      <%= form_with url: groups_search_path, method: :get, local: true  do |f| %>-->
-        <%= f.text_field :keyword, placeholder: "グループ検索", class: "group-search-form-input" %>-->
-        <%= f.submit '検索' %>
-      <% end %>
-    </div>
-    <div>
-      <% if @results %>
-        <% @results.each do |result| %>
-              <%= link_to "/groups/#{result.id}" do %>
-                <%= result.name %>(<%= result.user_ids.count %>)
-              <% end %>
-              <% if GroupUser.exists?(group_id: result.id, user_id: current_user.id) %>
-                <%= link_to '退出', groups_join_path(group_id: result.id) %>
-                <%= link_to '共有管理へ', new_group_share_food_path(result.id) %>
-              <% else %>
-                <%= link_to '参加', groups_join_path(group_id: result.id) %>
-              <% end %>
-              <% if result.owner_id == current_user.id %>
-                <%= link_to '編集', edit_group_path(result.id), method: :get %>
-                <%= link_to '削除', "/groups/#{result.id}", method: :delete %>
-              <% end %>
-    </div>
-        <% end %>
-      <% end %>
-    </div>
-    
-    <h2>参加中の食糧庫</h2>
+<div class="row mt-4">
+  <div class="col-md-auto col-lg-7">
+    <h4>参加中の管理者グループ</h4>
+    <!--グループがあるかの判断とない場合の表示-->
     <% if @group_joining == [] %>
       <%= @group_lists_none %>
     <% else %>
-    <div>
-      <ul>
         <% @group_lists.each do |list| %>
+          <!--参加しているグループがあるかの判断-->
           <% if list.user_ids.include?(current_user.id) %>
-            <li>
-              <%= link_to "/groups/#{list.id}" do %>
-                <%= list.name %>(<%= list.user_ids.count %>)
-              <% end %>
+            <div class="row shadow mt-2 rounded border border-secondary-20 mr-2">
+              <div class="col">
+                <%= link_to "/groups/#{list.id}", class: "btn btn-outline-secondary mt-1 mb-1" do %>
+                  <%= list.name %>(<%= list.user_ids.count %>)
+                <% end %>
+              </div>
+
+              <!--グループユーザーかの判断-->
               <% if GroupUser.exists?(group_id: list.id, user_id: current_user.id) %>
-                <%= link_to '退出', groups_join_path(group_id: list.id) %>
-                <%= link_to '共有管理へ', new_group_share_food_path(list.id) %>
+                <div class="col-3">
+                  <%= link_to '食糧庫', new_group_share_food_path(list.id), class: "btn btn-outline-dark mt-1 mb-1" %>
+                </div>
+                <div class="col-2">
+                  <%= link_to '退出', groups_join_path(group_id: list.id), class: "btn btn-outline-info mt-1 mb-1" %>
+                </div>
               <% else %>
-                <%= link_to '参加', groups_join_path(group_id: list.id) %>
+                <div class="col-2">
+                  <%= link_to '参加', groups_join_path(group_id: list.id), class: "btn btn-outline-success mt-1 mb-1" %>
+                </div>
               <% end %>
+
+              <!--グループオーナーのみ表示-->
               <% if list.owner_id == current_user.id %>
-                <%= link_to '編集', edit_group_path(list.id), method: :get %>
-                <%= link_to '削除', "/groups/#{list.id}", method: :delete %>
+                <div class="col-2">
+                  <%= link_to '編集', edit_group_path(list.id), method: :get, class: "btn btn-outline-warning mt-1 mb-1" %>
+                </div>
+                <div class="col-2">
+                  <%= link_to '削除', "/groups/#{list.id}", method: :delete, class: "btn btn-outline-danger mt-1 mb-1" %>
+                </div>
+              <% else %>
+                <div class="col-2"> </div>
+                <div class="col-2"> </div>
               <% end %>
-            </li>
+            </div>
           <% end %>
         <% end %>
-      </ul>
+    <% end %>
+  </div>
+
+  <div class="col-md col-lg">
+    <div class="row mt-4">
+    <!--グループ検索機能-->
+    <%= form_with url: groups_search_path, method: :get, local: true  do |f| %>
+    <div class="input-group mb-3">
+      <%= f.text_field :keyword, placeholder: "グループ検索", class: "form-control" %>
+      <div class="input-group-append">
+      <%= f.submit '検索', class: "btn btn-outline-secondary" %>
+      </div>
     </div>
+    <% end %>
+    <% if @results %>
+      <% @results.each do |result| %>
+      </div>
+      
+      <div>
+        <div class="row rounded border border-secondary-20">
+          <div class="col">
+            <%= link_to "/groups/#{result.id}", class: "btn btn-outline-secondary mt-1 mb-1 btn-sm" do %>
+              <%= result.name %>(<%= result.user_ids.count %>)
+            <% end %>
+          </div>
+          
+          <!--グループユーザーかの判断-->
+          <% if GroupUser.exists?(group_id: result.id, user_id: current_user.id) %>
+            <div class="col-2">
+              <%= link_to '退出', groups_join_path(group_id: result.id), class: "btn btn-outline-info mt-1 mb-1 btn-sm" %>
+            </div>
+          <% else %>
+            <div class="col-2">
+              <%= link_to '参加', groups_join_path(group_id: result.id), class: "btn btn-outline-success mt-1 mb-1 btn-sm" %>
+            </div>
+          <% end %>
+          
+          <!--グループオーナーのみ表示-->
+          <% if result.owner_id == current_user.id %>
+            <div class="col-2">
+              <%= link_to '編集', edit_group_path(result.id), method: :get, class: "btn btn-outline-warning mt-1 mb-1 btn-sm" %>
+            </div>
+            <div class="col-2">
+              <%= link_to '削除', "/groups/#{result.id}", method: :delete, class: "btn btn-outline-danger mt-1 mb-1 btn-sm" %>
+            </div>
+          <% else %>
+            <div class="col-2"> </div>
+            <div class="col-2"> </div>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

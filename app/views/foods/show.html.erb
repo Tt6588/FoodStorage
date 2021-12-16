@@ -13,6 +13,7 @@
     </div>
     <div class="row">
       <div class="col-3">食材情報</div>
+      <!--CSSに適応させるためPタグ使用-->
       <div class="col-auto"><p><%= @food.detail %></p></div>
     </div>
     <div class="row">
@@ -65,6 +66,7 @@
         <%= comment.created_at.strftime('%m/%d') %>
       </div>
       <div class="col-auto">
+      <!--CSSに適応させるためPタグ使用-->
         <p><%= comment.comment %></p>
       </div>
         <% if comment.user == current_user %>
