@@ -25,7 +25,7 @@
             <div class="row shadow mt-2 rounded border border-secondary-20 mr-2">
               <div class="col">
                 <%= link_to "/groups/#{list.id}", class: "btn btn-outline-secondary mt-1 mb-1" do %>
-                  <%= list.name %>(<%= list.user_ids.count %>)
+                  <%= list.name %> <span class="badge badge-secondary"><%= list.user_ids.count %></span>
                 <% end %>
               </div>
 
@@ -79,7 +79,7 @@
           <div class="row rounded border border-secondary-20">
             <div class="col">
               <%= link_to "/groups/#{result.id}", class: "btn btn-outline-secondary mt-1 mb-1 btn-sm" do %>
-                <%= result.name %>(<%= result.user_ids.count %>)
+                <%= result.name %> <span class="badge badge-secondary"><%= result.user_ids.count %></span>
               <% end %>
             </div>
 

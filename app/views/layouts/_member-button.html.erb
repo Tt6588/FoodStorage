@@ -1,0 +1,25 @@
+<button type="button" class="btn btn-outline-secondary mt-1 mb-1" data-toggle="modal" data-target="#modal1">
+  <%= list.name %> <span class="badge badge-pill badge-secondary"><%= list.user_ids.count %></span>
+</button>
+<div class="modal fade" id="modal1" tabindex="-1"role="dialog" aria-labelledby="label1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="label1"><%= list.name %>-管理者リスト</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <div class="modal-body">
+      <% list.users.each do |member| %>
+        <h4>
+          <%= member.name %>
+            <% if list.owner_id == member.id %>
+              <span class="badge badge-success">owner</span>
+            <% end %>
+        </h4>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>

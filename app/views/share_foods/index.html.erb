@@ -1,4 +1,5 @@
-<h3 class="offset-1">食材一覧-<%= @group.name %>
+<h3 class="offset-1">食材一覧-
+  <%= render "layouts/member-button", list: @group %>
   <%= link_to " -  食糧庫へ  - ", new_group_share_food_path, class: "btn btn-outline-primary ml-4" %>
 </h3>
 <div class="mt-3">

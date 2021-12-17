@@ -1,7 +1,6 @@
 <h1>グループmennba</h1>
 <%= link_to 'グループへ', groups_path %>
-      <%= @group.name %>
-      <% @group.users.each do |user| %>
+      <%= @group.name %><% @group.users.each do |user| %>
        <div> <%= user.name %>
         <% if @group.owner_id == user.id %>
         aaa
