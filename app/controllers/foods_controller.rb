@@ -11,8 +11,8 @@ class FoodsController < ApplicationController
     if @food.save
                                           # binding.pry
       redirect_to food_path(@food.id), notice: '食材を登録しました。'
-    else 
-      render :new
+    else
+      redirect_to new_food_path, alert: '食材を登録出来ませんでした。'
     end
   end
 
@@ -34,7 +34,7 @@ class FoodsController < ApplicationController
     if @food.update(food_params)
       redirect_to food_path(@food.id), notice: '食材を更新しました。'
     else
-      render :show
+      redirect_to edit_food_path(@food), alert: '食材を更新出来ませんでした。'
     end
   end
 
@@ -43,7 +43,7 @@ class FoodsController < ApplicationController
     if@food.destroy
       redirect_to foods_path, notice: '食材を削除しました。'
     else
-      render :edit
+      redirect_to edit_food_path(@food), alert: '食材を削除出来ませんでした。'
     end
   end
 

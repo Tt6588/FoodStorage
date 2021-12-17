@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
       GroupUser.create(user_id: current_user.id,  group_id: @group.id)
       redirect_to groups_path, notice: 'グループを作成しました。'
     else
-        render :index
+      redirect_to groups_path, alert: 'グループを作成出来ませんでした。'
     end
   end
 
@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to groups_path, notice: 'グループを更新しました。'
     else
-      render :edit
+      redirect_to groups_path, alert: 'グループを更新出来ませんでした。'
     end
   end
 
@@ -34,6 +34,8 @@ class GroupsController < ApplicationController
     delete_group = Group.find(params[:id])
     if delete_group.destroy
       redirect_to groups_path, notice: 'グループを削除しました。'
+    else
+      redirect_to groups_path, alert: 'グループを削除出来ませんでした。'
     end
   end
 

@@ -63,52 +63,54 @@
 
   <div class="col-md col-lg">
     <div class="row mt-4">
-    <!--グループ検索機能-->
-    <%= form_with url: groups_search_path, method: :get, local: true  do |f| %>
-    <div class="input-group mb-3">
-      <%= f.text_field :keyword, placeholder: "グループ検索", class: "form-control" %>
-      <div class="input-group-append">
-      <%= f.submit '検索', class: "btn btn-outline-secondary" %>
-      </div>
-    </div>
-    <% end %>
-    <% if @results %>
-      <% @results.each do |result| %>
-      </div>
-      
-      <div>
-        <div class="row rounded border border-secondary-20">
-          <div class="col">
-            <%= link_to "/groups/#{result.id}", class: "btn btn-outline-secondary mt-1 mb-1 btn-sm" do %>
-              <%= result.name %>(<%= result.user_ids.count %>)
-            <% end %>
+      <!--グループ検索機能-->
+      <%= form_with url: groups_search_path, method: :get, local: true  do |f| %>
+        <div class="input-group mb-3">
+          <%= f.text_field :keyword, placeholder: "グループ検索", class: "form-control" %>
+          <div class="input-group-append">
+            <%= f.submit '検索', class: "btn btn-outline-secondary" %>
           </div>
-          
-          <!--グループユーザーかの判断-->
-          <% if GroupUser.exists?(group_id: result.id, user_id: current_user.id) %>
-            <div class="col-2">
-              <%= link_to '退出', groups_join_path(group_id: result.id), class: "btn btn-outline-info mt-1 mb-1 btn-sm" %>
-            </div>
-          <% else %>
-            <div class="col-2">
-              <%= link_to '参加', groups_join_path(group_id: result.id), class: "btn btn-outline-success mt-1 mb-1 btn-sm" %>
-            </div>
-          <% end %>
-          
-          <!--グループオーナーのみ表示-->
-          <% if result.owner_id == current_user.id %>
-            <div class="col-2">
-              <%= link_to '編集', edit_group_path(result.id), method: :get, class: "btn btn-outline-warning mt-1 mb-1 btn-sm" %>
-            </div>
-            <div class="col-2">
-              <%= link_to '削除', "/groups/#{result.id}", method: :delete, class: "btn btn-outline-danger mt-1 mb-1 btn-sm" %>
-            </div>
-          <% else %>
-            <div class="col-2"> </div>
-            <div class="col-2"> </div>
-          <% end %>
         </div>
       <% end %>
+    </div>
+    <% if @results %>
+      <% @results.each do |result| %>
+        <div>
+          <div class="row rounded border border-secondary-20">
+            <div class="col">
+              <%= link_to "/groups/#{result.id}", class: "btn btn-outline-secondary mt-1 mb-1 btn-sm" do %>
+                <%= result.name %>(<%= result.user_ids.count %>)
+              <% end %>
+            </div>
+
+           <!--グループユーザーかの判断-->
+            <% if GroupUser.exists?(group_id: result.id, user_id: current_user.id) %>
+              <div class="col-2">
+                <%= link_to '退出', groups_join_path(group_id: result.id), class: "btn btn-outline-info mt-1 mb-1 btn-sm" %>
+              </div>
+            <% else %>
+              <div class="col-2">
+                <%= link_to '参加', groups_join_path(group_id: result.id), class: "btn btn-outline-success mt-1 mb-1 btn-sm" %>
+              </div>
+            <% end %>
+
+            <!--グループオーナーのみ表示-->
+            <% if result.owner_id == current_user.id %>
+              <div class="col-2">
+                <%= link_to '編集', edit_group_path(result.id), method: :get, class: "btn btn-outline-warning mt-1 mb-1 btn-sm" %>
+              </div>
+              <div class="col-2">
+                <%= link_to '削除', "/groups/#{result.id}", method: :delete, class: "btn btn-outline-danger mt-1 mb-1 btn-sm" %>
+              </div>
+            <% else %>
+              <div class="col-2"> </div>
+              <div class="col-2"> </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+    <div class="alert alert-info">こちらから検索してグループに参加できます</div>
     <% end %>
   </div>
 </div>
