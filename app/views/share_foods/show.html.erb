@@ -5,7 +5,7 @@
 
 <div class="row rounded border shadow ">
   <div class="col-sm-auto col-lg-4 mt-2 mb-2">
-    <%= attachment_image_tag @share_food, :image, class:"w-40 img-fluid img-thumbnail shadow" %>
+    <%= attachment_image_tag @share_food, :image, class:"w-40 img-fluid img-thumbnail shadow", format: 'jpeg', fallback: "no_image.jpg" %>
   </div>
 
   <div class="col-sm-12 col-lg-4 mt-2 mb-2">

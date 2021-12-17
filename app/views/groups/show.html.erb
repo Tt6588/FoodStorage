@@ -1,9 +1,12 @@
-<h1>グループmennba</h1>
-<%= link_to 'グループへ', groups_path %>
-      <%= @group.name %><% @group.users.each do |user| %>
-       <div> <%= user.name %>
-        <% if @group.owner_id == user.id %>
-        aaa
-        <% end %>
-        </div>
+<h3>管理者リスト　-　<%= @group.name %></h3>
+
+<div>
+  <% @group.users.each do |user| %>
+    <h3>
+      <%= user.name %>
+      <% if @group.owner_id == user.id %>
+        <span class="badge badge-success">owner</span>
       <% end %>
+    </h3>
+  <% end %>
+</div>

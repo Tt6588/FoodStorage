@@ -1,11 +1,13 @@
-<h1>グループ編集</h1>
+<h3>グループ名の編集</h3>
 
-<%= form_with(model: @group, local: true) do |f| %>
-  <div class="group-new-form">
-    <div class="gtoup-new-form-name">
-      <%= f.label :name, 'グループ名' %>
-      <%= f.text_field :name, class: 'form-control' %>
+<div>
+  <!--グループ作成機能-->
+  <%= form_with(model: @group, local: true) do |f| %>
+    <div class="input-group mb-3" data-toggle="popover" data-placement="top" data-content="同じ名称のグループは作成できません  1~9文字まで">
+      <%= f.text_field :name, type:"text", class:"form-control" %>
+      <div class="input-group-append">
+        <%= f.submit '更新', class: "btn btn-outline-primary" %>
+      </div>
     </div>
-    <%= f.submit '更新', class: "btn btn-primary" %>
-  </div>
-<% end %>
+  <% end %>
+</div>

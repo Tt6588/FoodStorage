@@ -14,7 +14,7 @@
               <div class="card mr-2 mt-4 shadow-lg">
                 <div class="card-body">
                   <%= link_to  "/groups/#{@group.id}/share_foods/#{share_food.id}" do %>
-                    <p><%= attachment_image_tag share_food, :image, :fill, 145, 100 ,class:"card-img-top" %></p>
+                    <p><%= attachment_image_tag share_food, :image, :fill, 145, 100 ,class:"card-img-top", format: 'jpeg', fallback: "no_image.jpg" %></p>
                   <% end %>
                   <div class="card-title"><%= share_food.food_name %></div>
                   <div><%= "#{share_food.share_comments.count} コメント" %></div>
