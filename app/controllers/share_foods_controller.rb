@@ -3,7 +3,6 @@ class ShareFoodsController < ApplicationController
   def new
     @group = Group.find(params[:group_id])
     @share_food = ShareFood.new
-    @share_foods = ShareFood.all
   end
 
   def create

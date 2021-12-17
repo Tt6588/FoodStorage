@@ -5,10 +5,10 @@
     <div class="row">
 
       <% @foods.each do |food| %>
-        <div class="card mr-2 mt-4 shadow-lg">
+        <div class="card mr-4 mt-4 shadow-lg">
           <div class="card-body">
             <%= link_to food_path(food.id) do %>
-              <p><%= attachment_image_tag food, :image, :fill, 200, 150 ,class:"card-img-top py-2 px-2", format: 'jpeg', fallback: "no_image.jpg" %></p>
+              <p><%= attachment_image_tag food, :image, :fill, 145, 100 ,class:"card-img-top", format: 'jpeg', fallback: "no_image.jpg" %></p>
             <% end %>
             <div class="card-title"><%= food.food_name %></div>
             <div><%= "#{food.comments.count} コメント" %></div>

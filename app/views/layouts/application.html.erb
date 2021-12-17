@@ -12,7 +12,7 @@
     <header class="shadow">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <div><%= link_to image_tag("logo2.PNG", size: "200x70"), root_path, class:"btn btn-outline-secondary"%></div>
+          <div><%= link_to image_tag("logo2.PNG", size: "200x70"), root_path, class:"btn btn-outline-secondary mb-1"%></div>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,29 +22,29 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li>
-                  <%= link_to 'profile', user_path(current_user.id), class:"btn btn-outline-primary mr-1" %>
+                  <%= link_to 'profile', user_path(current_user.id), class:"btn btn-outline-primary mr-1 mb-1" %>
                 </li>
                 <li>
-                  <%= link_to "Storage", new_food_path, class:"btn btn-outline-warning mr-1" %>
+                  <%= link_to "Storage", new_food_path, class:"btn btn-outline-warning mr-1 mb-1" %>
                 </li>
                 <li>
-                  <%= link_to "Share-Storage", groups_path, class:"btn btn-outline-danger mr-1" %>
+                  <%= link_to "Share-Storage", groups_path, class:"btn btn-outline-danger mr-1 mb-1" %>
                 </li>
                 <li>
                   <%= link_to "log out", destroy_user_session_path, method: :delete, class:"btn btn-outline-dark" %>
                 </li>
               <% else %>
                 <li>
-                  <%= link_to "About", about_path, class:"btn btn-outline-secondary mr-1" %>
+                  <%= link_to "About", about_path, class:"btn btn-outline-secondary mr-1 mb-1" %>
                 </li>
-                <li class="btn btn-outline-success mr-1">
+                <li class="btn btn-outline-success mr-1 mb-1">
                   なんか考えます
                 </li>
                 <li>
-                  <%= link_to "sign up", new_user_registration_path, class:"btn btn-outline-danger mr-1" %>
+                  <%= link_to "sign up", new_user_registration_path, class:"btn btn-outline-danger mr-1 mb-1" %>
                 </li>
                 <li>
-                  <%= link_to "log in", new_user_session_path, class:"btn btn-outline-primary" %>
+                  <%= link_to "log in", new_user_session_path, class:"btn btn-outline-primary mb-1" %>
                 </li>
               <% end %>
             </ul>
