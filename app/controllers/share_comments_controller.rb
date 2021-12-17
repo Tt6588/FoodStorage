@@ -8,9 +8,9 @@ class ShareCommentsController < ApplicationController
     share_comment.group_id = group.id
     share_comment.share_food_id = share_food.id
     if share_comment.save
-      redirect_to "/groups/#{group.id}/share_foods/#{share_food.id}", notice: 'コメントしました。'
+      redirect_to "/groups/#{group.id}/share_foods/#{share_food.id}", notice: 'コメントしました'
     else
-      redirect_to "/groups/#{group.id}/share_foods/#{share_food.id}", alert: 'コメント出来ませんでした。'
+      redirect_to "/groups/#{group.id}/share_foods/#{share_food.id}", alert: 'コメント出来ませんでした'
     end
   end
 

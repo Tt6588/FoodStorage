@@ -11,12 +11,12 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    <div class="modal-body">
+    <div class="modal-body overflow-auto" style="height:200px;">
       <% list.users.each do |member| %>
         <h4>
           <%= member.name %>
             <% if list.owner_id == member.id %>
-              <span class="badge badge-success">owner</span>
+              <span class="badge badge-success badge-pill">OWNER</span>
             <% end %>
         </h4>
       <% end %>

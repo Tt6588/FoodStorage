@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     comment = current_user.comments.new(comment_params)
     comment.food_id = food.id
     if comment.save
-      redirect_to food_path(food), notice: 'コメントしました。'
+      redirect_to food_path(food), notice: 'コメントしました'
     else
       redirect_to food_path(food), alert: 'コメント出来ませんでした。'
     end

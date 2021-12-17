@@ -11,9 +11,9 @@ class GroupsController < ApplicationController
     @group.owner_id = current_user.id
     if @group.save
       GroupUser.create(user_id: current_user.id,  group_id: @group.id)
-      redirect_to groups_path, notice: 'グループを作成しました。'
+      redirect_to groups_path, notice: 'グループを作成しました'
     else
-      redirect_to groups_path, alert: 'グループを作成出来ませんでした。'
+      redirect_to groups_path, alert: 'グループを作成出来ませんでした'
     end
   end
 
@@ -24,18 +24,18 @@ class GroupsController < ApplicationController
   def update
     # @group = Group.find(params[:id])
     if @group.update(group_params)
-      redirect_to groups_path, notice: 'グループを更新しました。'
+      redirect_to groups_path, notice: 'グループを更新しました'
     else
-      redirect_to groups_path, alert: 'グループを更新出来ませんでした。'
+      redirect_to groups_path, alert: 'グループを更新出来ませんでした'
     end
   end
 
   def destroy
     delete_group = Group.find(params[:id])
     if delete_group.destroy
-      redirect_to groups_path, notice: 'グループを削除しました。'
+      redirect_to groups_path, notice: 'グループを削除しました'
     else
-      redirect_to groups_path, alert: 'グループを削除出来ませんでした。'
+      redirect_to groups_path, alert: 'グループを削除出来ませんでした'
     end
   end
 
@@ -77,7 +77,7 @@ class GroupsController < ApplicationController
 
     @group_lists = Group.all
     @group_joining = GroupUser.where(user_id: current_user.id)
-    @group_lists_none = "グループに参加していません。"
+    @group_lists_none = "グループに参加していません"
   end
 
   def group_find

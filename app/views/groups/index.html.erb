@@ -20,7 +20,7 @@
     <h4>参加中の管理者グループ</h4>
     <!--グループがあるかの判断とない場合の表示-->
     <% if @group_joining == [] %>
-      <%= @group_lists_none %>
+      <div class="alert alert-info"><%= @group_lists_none %></div>
     <% else %>
       <div  class="overflow-auto" style="height:510px;">
         <% @group_lists.each do |list| %>

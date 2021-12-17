@@ -40,7 +40,7 @@
   </div>
 
   <div class="col-sm col-lg-4 mt-2 mb-5">
-    <div class="position-relative" style="top:30px;">
+    <div class="position-relative mt-3" data-toggle="popover" data-placement="top" data-content="1~300文字まで">
       <%= form_with(model: @share_comment, url:"/groups/#{@group.id}/share_foods/#{@share_food.id}/share_comments", local: true) do |f| %>
         <%= f.text_area :comment, rows:'5',placeholder: "例：カレーに使用します。使わないで！", class:"mb-1 form-control" %>
         <%= f.submit "コメント追加" , class:"btn btn-dark btn-sm"%>
