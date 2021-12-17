@@ -56,9 +56,15 @@
 
     <main style="margin-bottom:80px">
       <div class="container p-2">
-        <p class="text-success"><%= notice %></p>
-        <p class="text-danger"><%= alert %></p>
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
+        
         <%= yield %>
+        
       </div>
     </main>
 

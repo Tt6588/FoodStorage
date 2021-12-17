@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
 
   def new
+    @user = current_user
     @food = Food.new
     @foods = Food.all
   end
@@ -17,6 +18,7 @@ class FoodsController < ApplicationController
   end
 
   def index
+    @user = current_user
     @foods = Food.all.order(deadline_time: :asc)
   end
 

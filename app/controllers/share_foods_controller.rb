@@ -13,7 +13,7 @@ class ShareFoodsController < ApplicationController
                                           # binding.pry
       redirect_to "/groups/#{@group.id}/share_foods/#{@share_food.id}", notice: '食材を追加しました。'
     else
-      render :new
+      redirect_to new_group_share_food_path, alert: '食材を登録出来ませんでした。'
     end
   end
 
@@ -41,7 +41,7 @@ class ShareFoodsController < ApplicationController
     if @share_food.update(share_food_params)
       redirect_to "/groups/#{@group.id}/share_foods/#{@share_food.id}", notice: '食材を更新しました。'
     else
-      render :show
+      redirect_to "/groups/#{@group.id}/share_foods/#{@share_food.id}/edit", alert: '食材を更新出来ませんでした。'
     end
   end
 
@@ -50,7 +50,7 @@ class ShareFoodsController < ApplicationController
     if @share_food.destroy
       redirect_to group_share_foods_path, notice: '食材を削除しました。'
     else
-      render :new
+      redirect_to "/groups/#{@group.id}/share_foods/#{@share_food.id}/edit", alert: '食材を削除出来ませんでした。'
     end
   end
 

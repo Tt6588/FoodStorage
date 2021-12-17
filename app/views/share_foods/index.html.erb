@@ -1,4 +1,4 @@
-<h3 class="offset-1">食材一覧-
+<h3>食材一覧　-　
   <%= render "layouts/member-button", list: @group %>
   <%= link_to " -  食糧庫へ  - ", new_group_share_food_path, class: "btn btn-outline-primary ml-4" %>
 </h3>
@@ -7,14 +7,14 @@
     <div class="row">
 
         <% if @share_food_addition == [] %>
-            <%= @share_foods_none %>
+            <span class="alert alert-info"><%= @share_foods_none %></span>
         <% else %>
           <% @share_foods.each do |share_food| %>
             <% if share_food.group_id == @group.id %>
               <div class="card mr-2 mt-4 shadow-lg">
                 <div class="card-body">
                   <%= link_to  "/groups/#{@group.id}/share_foods/#{share_food.id}" do %>
-                    <p><%= attachment_image_tag share_food, :image, :fill, 300, 250 ,class:"card-img-top py-2 px-2" %></p>
+                    <p><%= attachment_image_tag share_food, :image, :fill, 145, 100 ,class:"card-img-top" %></p>
                   <% end %>
                   <div class="card-title"><%= share_food.food_name %></div>
                   <div><%= "#{share_food.share_comments.count} コメント" %></div>

@@ -1,23 +1,34 @@
-<h3 class="offset-1">共有食糧庫-
+<h3>
+  共有食糧庫　-　
   <%= render "layouts/member-button", list: @group %>
+  <%= link_to 'グループ画面へ', groups_path, class: "btn btn-outline-primary ml-5" %>
 </h3>
+
+   <!--popover動作用js-->
+  <%= render "layouts/popover" %>
 
 <div class="row">
   <div class="col-md col-lg-4">
   <%= form_with model: [@group, @share_food], local: true do |f| %>
     <div class="form-group row mt-3">
       <div class="col-md">食材名</div>
-      <div class="col-md"><%= f.text_field :food_name, class: "form-control" %></div>
+      <div class="col-md" data-toggle="popover" data-placement="left" data-content="1~15文字">
+        <%= f.text_field :food_name, class: "form-control" %>
+      </div>
     </div>
 
     <div class="form-group row mt-1">
       <div class="col-md"><%= f.label :食材情報 %></div>
-      <div class="col-md"><%= f.text_area :detail, class: "form-control" %></div>
+      <div class="col-md" data-toggle="popover" data-placement="left" data-content="1~300文字">
+        <%= f.text_area :detail, class: "form-control" %>
+      </div>
     </div>
 
     <div class="form-group row mt-1">
       <div class="col-md"><%= f.label :ジャンル %></div>
-      <div class="col-md"><%= f.text_field :genre, class: "form-control" %></div>
+      <div class="col-md" data-toggle="popover" data-placement="left" data-content="1~15文字">
+        <%= f.text_field :genre, class: "form-control" %>
+      </div>
     </div>
 
     <div class="form-group row mt-1">
@@ -35,8 +46,8 @@
     </div>
 
     <div class="form-group row mt-1">
-      <div class="col-md"><%= link_to " -  食材一覧へ  - ", group_share_foods_path(@group.id), class: "btn btn-outline-dark ml-4" %></div>
-      <div class="col-md"><%= f.submit '作成', class: "btn btn-outline-success" %></div>
+      <div class="col-md"><%= link_to " -  食材一覧へ  - ", group_share_foods_path(@group.id), class: "btn btn-outline-dark ml-4 btn-block mt-1" %></div>
+      <div class="col-md"><%= f.submit '作成', class: "btn btn-outline-success btn-block mt-1" %></div>
     </div>
   <% end %>
   </div>

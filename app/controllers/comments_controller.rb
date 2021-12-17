@@ -4,8 +4,11 @@ class CommentsController < ApplicationController
     food = Food.find(params[:food_id])
     comment = current_user.comments.new(comment_params)
     comment.food_id = food.id
-    comment.save
-    redirect_to food_path(food)
+    if comment.save
+      redirect_to food_path(food), notice: 'コメントしました。'
+    else
+      redirect_to food_path(food), alert: 'コメント出来ませんでした。'
+    end
   end
   
   def destroy

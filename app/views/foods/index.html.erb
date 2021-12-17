@@ -1,10 +1,10 @@
-<h3 class="offset-1">食材一覧
+<h3>食材一覧
   <%= link_to " -  食糧庫へ  - ", new_food_path, class: "btn btn-outline-primary ml-4" %></h3>
 <div class="mt-3">
   <div class="card-list-container-fluid pt-3">
     <div class="row">
 
-      <% @foods.each do |food| %>
+      <% @user.foods.each do |food| %>
         <div class="card mr-4 mt-4 shadow-lg">
           <div class="card-body">
             <%= link_to food_path(food.id) do %>
