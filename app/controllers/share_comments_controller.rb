@@ -1,5 +1,7 @@
 class ShareCommentsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def create
     group = Group.find(params[:group_id])
     share_food = ShareFood.find(params[:share_food_id])

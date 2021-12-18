@@ -1,6 +1,6 @@
 class ShareFoodsController < ApplicationController
   
-    before_action :authenticate_user!
+  before_action :authenticate_user!
     before_action :correct_share_food,only: [:edit, :show, :new, :index]
 
   def new

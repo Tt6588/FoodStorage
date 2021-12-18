@@ -1,5 +1,8 @@
 class GroupsController < ApplicationController
 
+  before_action :authenticate_user!
+  before_action :correct_group,only: [:edit]
+
   before_action :group_find, only: [:show, :edit, :update]
 
   def index
@@ -58,6 +61,13 @@ class GroupsController < ApplicationController
       GroupUser.create(user_id: current_user.id,  group_id: group_id)
     end
       redirect_to groups_path
+  end
+
+  def correct_group
+    @group = Group.find(params[:id])
+    unless @group.owner_id == current_user.id
+      redirect_to groups_path
+    end
   end
 
 

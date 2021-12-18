@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
   
-    before_action :authenticate_user!
-    before_action :correct_food,only: [:edit, :show]
+  before_action :authenticate_user!
+  before_action :correct_food,only: [:edit, :show]
 
   def new
     @user = current_user
