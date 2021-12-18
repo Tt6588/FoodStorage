@@ -3,6 +3,9 @@
   <%= link_to " -  一覧へ  - ", group_share_foods_path, class: "btn btn-outline-primary ml-4" %>
 </h3>
 
+   <!--popover動作用js-->
+  <%= render "layouts/popover" %>
+
 <div class="row rounded border shadow ">
   <div class="col-sm-auto col-lg-4 mt-2 mb-2">
     <%= attachment_image_tag @share_food, :image, class:"w-40 img-fluid img-thumbnail shadow", format: 'jpeg', fallback: "no_image.jpg" %>
@@ -40,9 +43,9 @@
   </div>
 
   <div class="col-sm col-lg-4 mt-2 mb-5">
-    <div class="position-relative mt-3" data-toggle="popover" data-placement="top" data-content="1~300文字まで">
+    <div class="position-relative mt-3" data-toggle="popover" data-placement="left" data-content="1~300文字まで">
       <%= form_with(model: @share_comment, url:"/groups/#{@group.id}/share_foods/#{@share_food.id}/share_comments", local: true) do |f| %>
-        <%= f.text_area :comment, rows:'5',placeholder: "例：カレーに使用します。使わないで！", class:"mb-1 form-control" %>
+        <%= f.text_area :comment, rows:'5',placeholder: "例：カレーに使用します。使わないで！", class:"mb-1 form-control", required: true %>
         <%= f.submit "コメント追加" , class:"btn btn-dark btn-sm"%>
       <% end %>
     </div>

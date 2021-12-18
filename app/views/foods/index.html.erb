@@ -1,21 +1,36 @@
 <h3>食材一覧
-  <%= link_to " -  食糧庫へ  - ", new_food_path, class: "btn btn-outline-primary ml-4" %></h3>
+  <%= link_to " -  食糧庫へ  - ", new_food_path, class: "btn btn-outline-primary ml-4" %>
+</h3>
+
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn active">
+    <input type="radio" autocomplete="off" checked>
+<%= link_to '更新日時でソートする', foods_path(sort_update: "true") %>
+  </label>
+  <label class="btn">
+    <input type="radio" autocomplete="off">
+<%= link_to '更新日時でソートする', foods_path(sort_updat: "true") %>
+  </label>
+</div>
+
+
 <div class="mt-3">
   <div class="card-list-container-fluid pt-3">
     <div class="row">
-
-      <% @user.foods.each do |food| %>
-        <div class="card mr-4 mt-4 shadow-lg">
-          <div class="card-body">
-            <%= link_to food_path(food.id) do %>
-              <p><%= attachment_image_tag food, :image, :fill, 145, 100 ,class:"card-img-top", format: 'jpeg', fallback: "no_image.jpg" %></p>
-            <% end %>
-            <div class="card-title"><%= food.food_name %></div>
-            <div><%= "#{food.comments.count} コメント" %></div>
-            <div>ジャンル：<%= food.genre %></div>
-            <div>消費期限：<%= food.deadline_time.strftime('%Y/%m/%d') %></div>
+      <% @foods.each do |food| %>
+        <% if food.user_id == current_user.id %>
+          <div class="card mr-4 mt-4 shadow-lg">
+            <div class="card-body">
+              <%= link_to food_path(food.id) do %>
+                <p><%= attachment_image_tag food, :image, :fill, 145, 100 ,class:"card-img-top", format: 'jpeg', fallback: "no_image.jpg" %></p>
+              <% end %>
+              <div class="card-title"><%= food.food_name %></div>
+              <div><%= "#{food.comments.count} コメント" %></div>
+              <div>ジャンル：<%= food.genre %></div>
+              <div>消費期限：<%= food.deadline_time.strftime('%Y/%m/%d') %></div>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
 
     </div>

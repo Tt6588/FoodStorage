@@ -22,7 +22,13 @@ class FoodsController < ApplicationController
 
   def index
     @user = current_user
-    @foods = Food.all.order(deadline_time: :asc)
+    if params[:sort_update]
+      @foods = Food.latest
+    elsif params[:sort_updat]
+      @foods = Food.latest2
+    else
+      @foods = Food.all.order(deadline_time: :asc)
+    end
   end
 
   def show

@@ -11,6 +11,10 @@ class Food < ApplicationRecord
     self.deadline_time
   end
   
+  
+  scope :latest, -> {order(updated_at: :desc)}
+  scope :latest2, -> {order(updated_at: :asc)}
+  
   validates :food_name, presence: true, length: { maximum: 15 } 
   validates :detail, length: { in: 0..300 } 
   validates :quantity, presence: true
