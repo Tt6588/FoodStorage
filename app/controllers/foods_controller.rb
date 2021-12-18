@@ -1,4 +1,7 @@
 class FoodsController < ApplicationController
+  
+    before_action :authenticate_user!
+    before_action :correct_food,only: [:edit, :show]
 
   def new
     @user = current_user
@@ -46,6 +49,13 @@ class FoodsController < ApplicationController
       redirect_to foods_path, notice: '食材を削除しました'
     else
       redirect_to edit_food_path(@food), alert: '食材を削除出来ませんでした'
+    end
+  end
+  
+  def correct_food
+        @food = Food.find(params[:id])
+    unless @food.user.id == current_user.id
+      redirect_to foods_path
     end
   end
 

@@ -12,17 +12,17 @@
       <div class="col-8"><%= @user.name%></div>
     </div>
 
-    <div class="form-group row mt-3">
-      <div class="col-4">メールアドレス</div>
-      <div class="col-8"><%= @user.email %></div>
-    </div>
+    <% if @user.id == current_user.id %>
+      <div class="form-group row mt-3">
+        <div class="col-4">メールアドレス</div>
+        <div class="col-8"><%= @user.email %></div>
+     </div>
     
-    <div class="form-group row mt-3">
-      <div class="col-4"></div>
-      <div class="col-8">
-        <% if @user.id == current_user.id %>
+      <div class="form-group row mt-3">
+        <div class="col-4"></div>
+        <div class="col-8">
           <p><%= link_to "プロフィール編集", edit_user_path(@user), class:"btn btn-outline-danger btn-sm mt-3" %></p>
-        <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
 </div>

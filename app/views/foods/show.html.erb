@@ -60,6 +60,7 @@
       <!--  <= attachment_image_tag @food, :image, :fill, 50, 50, class:" img-fluid img-thumbnail shadow" %> -->
       <!--</div>-->
 
+      <div><%= time_ago_in_words(comment.created_at) %></div>
       <div class="col-1">
         <%= comment.created_at.strftime('%m/%d') %>
       </div>
