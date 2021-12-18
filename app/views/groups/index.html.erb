@@ -7,7 +7,7 @@
   <!--グループ作成機能-->
   <%= form_with(model: @group, local: true) do |f| %>
     <div class="input-group mb-3" data-toggle="popover" data-placement="top" data-content="同じ名称のグループは作成できません  1~9文字まで">
-      <%= f.text_field :name, type:"text", class:"form-control", placeholder:"管理者グループ新規作成" %>
+      <%= f.text_field :name, type:"text", class:"form-control", placeholder:"管理者グループ新規作成", required: true %>
       <div class="input-group-append">
         <%= f.submit '-新規作成-', class: "btn btn-outline-primary" %>
       </div>

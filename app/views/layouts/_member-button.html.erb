@@ -14,10 +14,12 @@
     <div class="modal-body overflow-auto" style="height:200px;">
       <% list.users.each do |member| %>
         <h4>
-          <%= member.name %>
+          <%= link_to user_path(member.id), class:"btn btn-light btn-block" do %>
+            <%= member.name %>
             <% if list.owner_id == member.id %>
-              <span class="badge badge-success badge-pill">OWNER</span>
+              <span class="badge badge-success badge-sm badge-pill">OWNER</span>
             <% end %>
+          <% end %>
         </h4>
       <% end %>
     </div>

@@ -13,21 +13,21 @@
     <div class="form-group row mt-3">
       <div class="col-md">食材名</div>
       <div class="col-md" data-toggle="popover" data-placement="left" data-content="1~15文字">
-        <%= f.text_field :food_name, class: "form-control" %>
+        <%= f.text_field :food_name, class: "form-control", required: true %>
       </div>
     </div>
 
     <div class="form-group row mt-1">
       <div class="col-md"><%= f.label :食材情報 %></div>
       <div class="col-md" data-toggle="popover" data-placement="left" data-content="1~300文字">
-        <%= f.text_area :detail, class: "form-control" %>
+        <%= f.text_area :detail, class: "form-control", required: true %>
       </div>
     </div>
 
     <div class="form-group row mt-1">
       <div class="col-md"><%= f.label :ジャンル %></div>
       <div class="col-md" data-toggle="popover" data-placement="left" data-content="1~15文字">
-        <%= f.text_field :genre, class: "form-control" %>
+        <%= f.text_field :genre, class: "form-control", required: true %>
       </div>
     </div>
 
@@ -52,6 +52,7 @@
   <% end %>
   </div>
 
+  <!--カレンダーの表示-->
   <div class="col-sm col-md col-lg-8">
     <%= month_calendar events: @group.share_foods do |date, share_foods| %>
       <%= date.day %>
