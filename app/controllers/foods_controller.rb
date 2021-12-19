@@ -20,8 +20,10 @@ class FoodsController < ApplicationController
     end
   end
 
-  def index #ソート機能
+  def index 
     @user = current_user
+    
+    #ソート機能
     if params[:sort_update1]
       @foods = Food.latest1
     elsif params[:sort_update2]
