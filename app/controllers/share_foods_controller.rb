@@ -24,7 +24,19 @@ class ShareFoodsController < ApplicationController
     @group = Group.find(params[:group_id])
     @share_food_addition = ShareFood.where(group_id: @group.id)
     @share_foods_none = "食材を追加してください"
-    @share_foods = ShareFood.all.order(deadline_time: :asc)
+    
+    #ソート
+    if params[:sort_update1]
+      @share_foods = ShareFood.latest1
+    elsif params[:sort_update2]
+      @share_foods = ShareFood.latest2
+    elsif params[:sort_update3]
+      @share_foods = ShareFood.latest3
+    elsif params[:sort_update4]
+      @share_foods = ShareFood.latest4
+    else
+      @share_foods = ShareFood.all.order(deadline_time: :asc)
+    end
   end
 
   def show

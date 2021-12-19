@@ -12,6 +12,14 @@ class ShareFood < ApplicationRecord
     self.deadline_time
   end
   
+  #ソート機能　期限
+  scope :latest1, -> {order(deadline_time: :asc)}
+  scope :latest2, -> {order(deadline_time: :desc)}
+  
+  #ソート機能　作成日
+  scope :latest3, -> {order(created_at: :asc)}
+  scope :latest4, -> {order(created_at: :desc)}
+  
   validates :food_name, presence: true, length: { maximum: 15 } 
   validates :detail, length: { in: 0..300 } 
   validates :quantity, presence: true

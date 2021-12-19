@@ -2,7 +2,7 @@
   <div class="co3">食材一覧</div>
   <%= link_to " -  食糧庫へ  - ", new_food_path, class: "btn btn-outline-primary ml-4" %>
   <div class="col dropdown">
-    <button type="button" id="dropdown1" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+    <button type="button" id="dropdown1" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">並び</button>
     <div class="dropdown-menu" aria-labelledby="dropdown1">
       <div><%= link_to '期限-昇順', foods_path(sort_update1: "true"), class: "btn btn-outline-secondary btn-block" %></div>
       <div><%= link_to '期限-降順', foods_path(sort_update2: "true"), class: "btn btn-outline-secondary btn-block" %></div>
