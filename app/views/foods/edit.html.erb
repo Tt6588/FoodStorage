@@ -28,7 +28,7 @@
       </div>
       <div class="form-group row mt-3">
         <div class="col-3">個数</div>
-        <div class="col-auto"><%= f.select :quantity, options_for_select((1..10).to_a) %></div>
+        <div class="col-auto"><%= f.select :quantity, options_for_select((1..10).to_a, :selected => @food.quantity) %></div>
       </div>
       <div class="form-group row mt-3">
         <div class="col-3">消費期限</div>
