@@ -14,7 +14,7 @@ class FoodsController < ApplicationController
     @food.user_id = current_user.id
     if @food.save
                                           # binding.pry
-      redirect_to food_path(@food.id), notice: '食材を登録しました'
+      redirect_to new_food_path, notice: '食材を登録しました'#food_path(@food.id)詳細画面遷移から変更
     else
       redirect_to new_food_path, alert: '食材を登録出来ませんでした'
     end

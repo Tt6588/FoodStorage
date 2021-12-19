@@ -14,7 +14,7 @@ class ShareFoodsController < ApplicationController
     @share_food.group_id = @group.id
     if @share_food.save
                                           # binding.pry
-      redirect_to "/groups/#{@group.id}/share_foods/#{@share_food.id}", notice: '食材を追加しました'
+      redirect_to new_group_share_food_path, notice: '食材を追加しました'#"/groups/#{@group.id}/share_foods/#{@share_food.id}" 詳細画面遷移から変更
     else
       redirect_to new_group_share_food_path, alert: '食材を登録出来ませんでした'
     end
