@@ -20,12 +20,16 @@ class FoodsController < ApplicationController
     end
   end
 
-  def index
+  def index #ソート機能
     @user = current_user
-    if params[:sort_update]
-      @foods = Food.latest
-    elsif params[:sort_updat]
+    if params[:sort_update1]
+      @foods = Food.latest1
+    elsif params[:sort_update2]
       @foods = Food.latest2
+    elsif params[:sort_update3]
+      @foods = Food.latest3
+    elsif params[:sort_update4]
+      @foods = Food.latest4
     else
       @foods = Food.all.order(deadline_time: :asc)
     end

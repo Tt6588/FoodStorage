@@ -2,16 +2,15 @@
   <%= link_to " -  食糧庫へ  - ", new_food_path, class: "btn btn-outline-primary ml-4" %>
 </h3>
 
-<div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn active">
-    <input type="radio" autocomplete="off" checked>
-<%= link_to '更新日時でソートする', foods_path(sort_update: "true") %>
-  </label>
-  <label class="btn">
-    <input type="radio" autocomplete="off">
-<%= link_to '更新日時でソートする', foods_path(sort_updat: "true") %>
-  </label>
-</div>
+      <div class="dropdown">
+        <button type="button" id="dropdown1" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+        <div class="dropdown-menu" aria-labelledby="dropdown1">
+          <div><%= link_to '期限-昇順', foods_path(sort_update1: "true"), class: "btn btn-outline-primary" %></div>
+          <div><%= link_to '期限-降順', foods_path(sort_update2: "true"), class: "btn btn-outline-primary" %></div>
+          <div><%= link_to '作成-昇順', foods_path(sort_update3: "true"), class: "btn btn-outline-primary" %></div>
+          <div><%= link_to '作成-降順', foods_path(sort_update4: "true"), class: "btn btn-outline-primary" %></div>
+        </div>
+      </div>
 
 
 <div class="mt-3">
