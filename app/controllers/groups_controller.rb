@@ -57,10 +57,11 @@ class GroupsController < ApplicationController
 
     if group_user
       GroupUser.destroy(group_user.id)
+      redirect_to groups_path , notice: 'グループを退室しました'
     else
       GroupUser.create(user_id: current_user.id,  group_id: group_id)
+      redirect_to groups_path , info: 'グループに参加しました'
     end
-      redirect_to groups_path
   end
 
   def correct_group

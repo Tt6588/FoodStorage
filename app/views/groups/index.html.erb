@@ -47,7 +47,7 @@
                   <%= link_to '編集', edit_group_path(list.id), method: :get, class: "btn btn-outline-warning mt-1 mb-1 btn-block" %>
                 </div>
                 <div class="col-2">
-                  <%= link_to '削除', "/groups/#{list.id}", method: :delete, class: "btn btn-outline-danger mt-1 mb-1 btn-block" %>
+                  <%= link_to '削除', "/groups/#{list.id}", method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-outline-danger mt-1 mb-1 btn-block" %>
                 </div>
               <% else %>
                 <div class="col-2"> </div>
@@ -89,7 +89,7 @@
                 </div>
               <% else %>
                 <div class="col-2">
-                  <%= link_to '参加', groups_join_path(group_id: result.id), class: "btn btn-outline-success mt-1 mb-1 btn-sm btn-block" %>
+                  <%= link_to '参加', groups_join_path(group_id: result.id), class: "btn btn-outline-success mt-1 mb-1 btn-sm btn-block rounded-pill" %>
                 </div>
               <% end %>
 
@@ -99,7 +99,7 @@
                   <%= link_to '編集', edit_group_path(result.id), method: :get, class: "btn btn-outline-warning mt-1 mb-1 btn-sm btn-block" %>
                 </div>
                 <div class="col-2">
-                  <%= link_to '削除', "/groups/#{result.id}", method: :delete, class: "btn btn-outline-danger mt-1 mb-1 btn-sm btn-block" %>
+                  <%= link_to '削除', "/groups/#{result.id}", method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-outline-danger mt-1 mb-1 btn-sm btn-block" %>
                 </div>
               <% else %>
                 <div class="col-2"> </div>

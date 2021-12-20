@@ -43,7 +43,7 @@
         <div class="col-3"></div>
         <div class="col-4">
           <%= f.submit "update", class:"btn btn-outline-success btn-sm mt-3" %>
-          <%= link_to "delete", "/groups/#{@group.id}/share_foods/#{@share_food.id}", method: :delete, class:"btn btn-outline-danger btn-sm mt-3" %>
+          <%= link_to "delete", "/groups/#{@group.id}/share_foods/#{@share_food.id}", method: :delete, data: {confirm: "本当に削除しますか？"}, class:"btn btn-outline-danger btn-sm mt-3" %>
         </div>
       </div>
     <% end %>

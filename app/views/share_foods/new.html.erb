@@ -62,7 +62,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdown1">
           <% share_foods.each do |share_food| %>
             <div>
-              <%= link_to share_food.food_name, "/groups/#{@group.id}/share_foods/#{share_food.id}", class:"btn btn-light" %>
+              <%= link_to share_food.food_name, "/groups/#{@group.id}/share_foods/#{share_food.id}", class:"btn btn-light btn-block" %>
             </div>
           <% end %>
         </div>

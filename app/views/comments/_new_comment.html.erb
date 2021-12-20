@@ -1,0 +1,4 @@
+<%= form_with(model:[food, comment], data: {remote: true}) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "例：カレーに使用します。使わないで！", class:"mb-1 form-control", required: true %>
+  <%= f.submit "コメント追加" , class:"btn btn-dark btn-sm"%>
+<% end %>

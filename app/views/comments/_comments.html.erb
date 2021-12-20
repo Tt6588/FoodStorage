@@ -5,8 +5,8 @@
       <!--<div class="col-1">-->
       <!--  <= attachment_image_tag @food, :image, :fill, 50, 50, class:" img-fluid img-thumbnail shadow" %> -->
       <!--</div>-->
-
       <!--<div><= time_ago_in_words(comment.created_at) %></div>-->
+      
       <div class="col-1">
         <%= comment.created_at.strftime('%m/%d') %>
       </div>
@@ -16,7 +16,7 @@
       </div>
         <% if comment.user == current_user %>
         <div class="col-1">
-          <%= link_to "削除", food_comment_path(comment.food, comment), method: :delete, class:"btn btn-outline-danger btn-sm mt-1 mb-1" %>
+          <%= link_to "削除", food_comment_path(comment.food, comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class:"btn btn-outline-danger btn-sm mt-1 mb-1" %>
         </div>
         <% end %>
     </div>
