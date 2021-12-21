@@ -20,7 +20,7 @@
           <div class="card mr-4 mt-4 shadow-lg">
             <div class="card-body">
               <%= link_to food_path(food.id) do %>
-                <p><%= attachment_image_tag food, :image, :fill, 145, 100 ,class:"card-img-top", format: 'jpeg', fallback: "no_image.jpg" %></p>
+                <p><%= attachment_image_tag food, :image, :fill, 225, 150 ,class:"card-img-top rounded", format: 'jpeg', fallback: "logo.PNG", size:'100x100' %></p>
               <% end %>
               <div class="card-title"><%= food.food_name %></div>
               <div><%= "#{food.comments.count} コメント" %></div>

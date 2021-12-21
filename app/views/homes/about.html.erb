@@ -1,1 +1,50 @@
-<h1>about</h1>
+<div class="row mt-5">
+  <div class="col mr-2 shadow-lg rounded">作成について</div>
+  <div class="col-4 shadow-lg rounded">
+    <div class="row m-3">
+      <div id="example-2" class="carousel slide" data-ride="carousel" data-pause=hover style="width:400px">
+        <ol class="carousel-indicators">
+          <li data-target="#example-3" data-slide-to="0" class="active"></li>
+          <li data-target="#example-3" data-slide-to="1"></li>
+          <li data-target="#example-3" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag'sax1.jpg', size:'500x380', class:"rounded-circle img-thumbnail" %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag'sax2.jpg', size:'500x380', class:"rounded-circle img-thumbnail" %>
+          </div>
+          <div class="carousel-item">
+            <%= video_tag("/videos/sax-v.mp4", autoplay: :true, loop: :true, muted: :true, class: 'video-content rounded-circle img-thumbnail', size:'500x380') %>
+          </div>
+          <a class="carousel-control-prev" href="#example-2" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#example-2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col text-center font-italic">制作</div>
+      <div class="col text-center font-italic">sugar</div>
+    </div>
+    <div class="row mt-2">
+      <div class="col text-center font-italic">年齢</div>
+      <div class="col text-center font-italic">22歳(作成時)</div>
+    </div>
+    <div class="row mt-2">
+      <div class="col text-center font-italic">出身</div>
+      <div class="col text-center font-italic">愛知県</div>
+    </div>
+    <div class="row mt-2 mb-2">
+      <div class="col text-center font-italic">趣味</div>
+      <div class="col text-center font-italic">サックス・ランニング</div>
+    </div>
+
+  </div>
+</div>
