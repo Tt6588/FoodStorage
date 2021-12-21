@@ -14,8 +14,9 @@ class CommentsController < ApplicationController
   def destroy
     Comment.find_by(id: params[:id]).destroy
     @food = Food.find(params[:food_id])
+    # render :comments_destroy  #render先にjsファイルを指定でjsファイルの名称を変更しても使用できる。
     
-    # redirect_to food_path(params[:food_id])
+    # redirect_to food_path(params[:food_id])　#非同期化の為コメントアウト
   end
   
   private

@@ -1,5 +1,5 @@
 <!--id="commentsをrenderで指定した部分テンプレートに更新-->
-$("#comments").html("<%= j(render 'comments/comments', food: @food, comment: @comment) %>");
+$("#share_comments").html("<%= j(render 'share_comments/comments', share_food: @share_food, group: @group) %>");
 
 <!--アプリケーションhtmlでコメント通知-->
 $(".comment_alert").css("display", "block");

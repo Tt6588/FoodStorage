@@ -1,8 +1,8 @@
 <!--id="commentsをrenderで指定した部分テンプレートに更新-->
-$("#comments").html("<%= j(render 'comments/comments', food: @food, comment: @comment) %>");
+$("#share_comments").html("<%= j(render 'share_comments/comments', share_food: @share_food, group: @group) %>");
 
 <!--フォームを送信したあとにフォームの値を空にする-->
-$("#comment_comment").val('');
+$("#share_comment_comment").val('');
 
 <!--アプリケーションhtmlでコメント通知-->
 $(".comment_success").css("display", "block");
