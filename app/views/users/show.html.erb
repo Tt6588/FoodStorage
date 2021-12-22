@@ -1,28 +1,57 @@
-<h3 class="offset-2">管理者プロフィール</h3>
-
-<div class="col-8 offset-2 mt-5">
-
-    <div class="form-group row">
-      <div class="col-4">プロフィール画像</div>
-      <div class="col-8"><%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg", class:"rounded-circle img-thumbnail" %></div>
+<div class="row">
+  <div class="col-sm col-lg-4 mt-3 shadow-lg rounded mr-2 order-1">
+    <h3 class="text-center">管理者プロフィール</h3>
+    <div class="row m-3">
+      <div class="col"></div>
+      <div class="col"><%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg", class:"rounded-circle img-thumbnail" %></div>
+    </div>
+    <div class="row mt-2">
+      <div class="col text-center">名前</div>
+      <div class="col text-center font-italic"><%= @user.name%></div>
+    </div>
+    <div class="row mt-2">
+      <div class="col text-center">Email</div>
+      <div class="col text-center"><%= @user.email %></div>
+    </div>
+    <div class="row mt-2 mb-2">
+      <div class="col text-center"></div>
+      <div class="col text-center">
+        <p><%= link_to "プロフィール編集", edit_user_path(@user), class:"btn btn-outline-danger btn-sm mt-3" %></p>
+      </div>
     </div>
 
-    <div class="form-group row mt-3">
-      <div class="col-4">名前</div>
-      <div class="col-8"><%= @user.name%></div>
-    </div>
+  </div>
 
-    <% if @user.id == current_user.id %>
-      <div class="form-group row mt-3">
-        <div class="col-4">メールアドレス</div>
-        <div class="col-8"><%= @user.email %></div>
-     </div>
+<div class="col-lg mt-3 shadow-lg rounded order-2">
+    <h4 class="text-center mt-2 mb-2">参加中の管理者グループ
+      <%= link_to 'グループ画面へ', groups_path, class: "btn btn-outline-primary ml-5" %>
+    </h4>
+    <!--グループがあるかの判断とない場合の表示-->
+    <% if @group_joining == [] %>
+      <div class="alert alert-info"><%= @group_lists_none %></div>
+    <% else %>
+      <div  class="overflow-auto" style="height:300px;">
+        <% @group_lists.each do |list| %>
+          <!--参加しているグループがあるかの判断-->
+          <% if list.user_ids.include?(@user.id) %>
+            <div class="row shadow mt-2 rounded border border-secondary-20 mr-1 mt-2 ml-1">
+              <div class="col btn mt-1 mb-1 btn-block">
+                <%= list.name %> <span class="badge badge-secondary"><%= list.user_ids.count %></span>
+              </div>
 
-      <div class="form-group row mt-3">
-        <div class="col-4"></div>
-        <div class="col-8">
-          <p><%= link_to "プロフィール編集", edit_user_path(@user), class:"btn btn-outline-danger btn-sm mt-3" %></p>
-        </div>
+              <!--グループユーザーかの判断-->
+              <% if GroupUser.exists?(group_id: list.id, user_id: current_user.id) %>
+                <div class="col-sm-3 col-lg-2">
+                  <%= link_to '管理へ', new_group_share_food_path(list.id), class: "btn btn-outline-dark mt-1 mb-1 btn-block rounded-pill" %>
+                </div>
+              <% else %>
+                <div class="col-sm-3 col-lg-2"></div>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     <% end %>
+  </div>
 </div>
+

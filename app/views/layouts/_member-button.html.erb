@@ -11,18 +11,18 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    <div class="modal-body overflow-auto" style="height:200px;">
-      <% list.users.each do |member| %>
-        <h4>
-          <%= link_to user_path(member.id), class:"btn btn-light btn-block" do %>
-            <%= member.name %>
-            <% if list.owner_id == member.id %>
-              <span class="badge badge-success badge-sm badge-pill">OWNER</span>
+      <div class="modal-body overflow-auto" style="height:200px;">
+        <% list.users.each do |member| %>
+          <h4>
+            <%= link_to user_path(member.id), class:"btn btn-light btn-block" do %>
+              <%= member.name %>
+              <% if list.owner_id == member.id %>
+                <span class="badge badge-success badge-sm badge-pill">OWNER</span>
+              <% end %>
             <% end %>
-          <% end %>
-        </h4>
-      <% end %>
+          </h4>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 </div>

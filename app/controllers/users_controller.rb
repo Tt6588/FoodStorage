@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+
+    @group_lists = Group.all
+    @group_joining = GroupUser.where(user_id: @user.id)
+    @group_lists_none = "グループに参加していません"
   end
   
   def edit
