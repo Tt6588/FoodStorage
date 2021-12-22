@@ -21,30 +21,30 @@
           <div class="collapse navbar-collapse " id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
-                <li>
-                  <%= link_to 'profile', user_path(current_user.id), class:"btn btn-outline-primary mr-1 mb-1" %>
+                <li class="mr-1">
+                  <%= link_to 'profile', user_path(current_user.id), class:"btn btn-outline-primary btn-block mb-1" %>
                 </li>
-                <li>
-                  <%= link_to "Storage", new_food_path, class:"btn btn-outline-warning mr-1 mb-1" %>
+                <li class="mr-1">
+                  <%= link_to "Storage", new_food_path, class:"btn btn-outline-warning btn-block mb-1" %>
                 </li>
-                <li>
-                  <%= link_to "Share-Storage", groups_path, class:"btn btn-outline-danger mr-1 mb-1" %>
+                <li class="mr-1">
+                  <%= link_to "Share-Storage", groups_path, class:"btn btn-outline-danger btn-block mb-1" %>
                 </li>
-                <li>
-                  <%= link_to "log out", destroy_user_session_path, method: :delete, class:"btn btn-outline-dark" %>
+                <li class="mr-1">
+                  <%= link_to "log out", destroy_user_session_path, method: :delete, class:"btn btn-outline-dark btn-block" %>
                 </li>
               <% else %>
-                <li>
-                  <%= link_to "About", about_path, class:"btn btn-outline-secondary mr-1 mb-1" %>
+                <li class="mr-1">
+                  <%= link_to "About", about_path, class:"btn btn-outline-secondary btn-block mb-1" %>
                 </li>
-                <li class="btn btn-outline-success mr-1 mb-1">
+                <li class="btn btn-outline-success mb-1">
                   なんか考えます
                 </li>
-                <li>
-                  <%= link_to "sign up", new_user_registration_path, class:"btn btn-outline-danger mr-1 mb-1" %>
+                <li class="mr-1">
+                  <%= link_to "sign up", new_user_registration_path, class:"btn btn-outline-danger btn-block mb-1" %>
                 </li>
-                <li>
-                  <%= link_to "log in", new_user_session_path, class:"btn btn-outline-primary mb-1" %>
+                <li class="mr-1">
+                  <%= link_to "log in", new_user_session_path, class:"btn btn-outline-primary btn-block mb-1" %>
                 </li>
               <% end %>
             </ul>
@@ -56,13 +56,13 @@
 
     <main style="margin-bottom:80px">
       <div class="container p-2">
-        <p class="alert alert-success comment_success">コメントしました</p>
-        <p class="alert alert-danger comment_alert">コメントを取り消しました</p>
+        <p class="alert alert-success comment_success shadow">コメントしました</p>
+        <p class="alert alert-danger comment_alert shadow">コメントを取り消しました</p>
         <% if notice %>
-          <p class="alert alert-success"><%= notice %></p>
+          <p class="alert alert-success shadow"><%= notice %></p>
         <% end %>
         <% if alert %>
-          <p class="alert alert-danger"><%= alert %></p>
+          <p class="alert alert-danger shadow"><%= alert %></p>
         <% end %>
 
         <%= yield %>

@@ -1,26 +1,26 @@
-<div class="alert alert-secondary alert-dismissible fade show" role="alert">
-  <h2 class="text-center font-italic"><strong>FOOD STORAGE　-　食材管理ツール　使用方法</strong></h2>
+<div class="alert alert-secondary shadow alert-dismissible fade show" role="alert">
+  <h2 class="text-center"><strong>食材管理ツール　使用方法</strong></h2>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 
 <div class="row mt-3">
-  <div class="col shadow">
-    <ul class="nav nav-tabs nav-fill" role="tablist">
+  <div class="col rounded shadow-lg">
+    <ul class="nav nav-tabs nav-fill mt-2" role="tablist">
       <li class="nav-item">
-        <a class="nav-link btn btn-outline-primary active" id="item1-tab" data-toggle="tab" href="#item1" role="tab" aria-controls="item1" aria-selected="true">食材管理(個人)</a>
+        <a class="nav-link btn btn-outline-primary active" id="item1-tab" data-toggle="tab" href="#item1" role="tab" aria-controls="item1" aria-selected="true">個人管理</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link btn btn-outline-info" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-controls="item2" aria-selected="false">食材管理(共有)</a>
+        <a class="nav-link btn btn-outline-info" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-controls="item2" aria-selected="false">共有管理</a>
       </li>
     </ul>
     <div class="tab-content">
-      <div class="tab-pane fade show alert-primary active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
-        <%= video_tag("/videos/sax-v.mp4", autoplay: :true, loop: :true, muted: :true, class: 'video-content rounded img-thumbnail h-auto w-auto') %>
+      <div class="tab-pane fade show alert-primary active p-3" id="item1" role="tabpanel" aria-labelledby="item1-tab">
+        <%= video_tag("/videos/sax-v.mp4", autoplay: :true, loop: :true, muted: :true, class: 'video-content rounded img-thumbnail') %>
       </div>
-      <div class="tab-pane fade alert-info" id="item2" role="tabpanel" aria-labelledby="item2-tab">
-        <%= video_tag("/videos/sax-v.mp4", autoplay: :true, loop: :true, muted: :true, class: 'video-content rounded img-thumbnail h-auto w-auto') %>
+      <div class="tab-pane fade alert-info p-3" id="item2" role="tabpanel" aria-labelledby="item2-tab">
+        <%= video_tag("/videos/sax-v.mp4", autoplay: :true, loop: :true, muted: :true, class: 'video-content rounded img-thumbnail') %>
       </div>
     </div>
   </div>

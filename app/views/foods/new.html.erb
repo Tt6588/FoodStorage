@@ -4,7 +4,7 @@
   <%= render "layouts/popover" %>
 
 <div class="row">
-  <div class="col-md col-lg-4">
+  <div class="col-lg-4 order-1 order-lg-2">
   <%= form_with model: @food, local: true do |f| %>
     <div class="form-group row mt-3">
       <div class="col-md">食材名</div>
@@ -49,7 +49,7 @@
   </div>
 
   <!--カレンダーの表示-->
-  <div class="col-sm col-md col-lg-8">
+  <div class="col-lg-8 order-2 order-lg-2">
     <%= month_calendar events: @user.foods do |date, foods| %>
       <%= date.day %>
       <% if foods.present? %>
