@@ -1,10 +1,9 @@
 class ShareFood < ApplicationRecord
 
   belongs_to :group
-  # belongs_to :genre
+  # belongs_to :genre 仕様変更の為コメントアウト
   has_many :share_comments, dependent: :destroy
-  has_many :notices, dependent: :destroy
-  
+  # has_many :notices, dependent: :destroy
   
   attachment :image
   
@@ -21,7 +20,7 @@ class ShareFood < ApplicationRecord
   scope :latest4, -> {order(created_at: :desc)}
   
   validates :food_name, presence: true, length: { maximum: 15 } 
-  validates :detail, length: { in: 0..300 } 
+  validates :detail, presence: true, length: { in: 0..300 } 
   validates :quantity, presence: true
   validates :deadline_time, presence: true
   validates :genre, presence: true, length: { maximum: 15 } 
