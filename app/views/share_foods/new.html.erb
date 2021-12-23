@@ -1,5 +1,5 @@
 <h3>
-  共有食糧庫　-　
+  共有食糧庫　-
   <%= render "layouts/member-button", list: @group %>
   <%= link_to 'グループ画面へ', groups_path, class: "btn btn-outline-primary ml-5" %>
 </h3>
@@ -47,7 +47,7 @@
 
     <div class="form-group row mt-1">
       <div class="col-md"><%= link_to " -  食材一覧へ  - ", group_share_foods_path(@group.id), class: "btn btn-outline-dark ml-4 btn-block mt-1" %></div>
-      <div class="col-md"><%= f.submit '作成', class: "btn btn-outline-success btn-block mt-1" %></div>
+      <div class="col-md"><%= f.submit '作成', class: "btn btn-outline-success btn-block mt-1", data:{ confirm: '入力した内容で登録します。よろしいですか？', cancel: '取り消す',commit: '登録'}, title: '登録確認' %></div>
     </div>
   <% end %>
   </div>

@@ -26,14 +26,19 @@ class FoodsController < ApplicationController
     #ソート機能
     if params[:sort_update1]
       @foods = Food.latest1
+      @sort_neme = "期限-古い順"
     elsif params[:sort_update2]
       @foods = Food.latest2
+      @sort_neme = "期限-新しい順"
     elsif params[:sort_update3]
       @foods = Food.latest3
+      @sort_neme = "作成-古い順"
     elsif params[:sort_update4]
       @foods = Food.latest4
+      @sort_neme = "作成-新しい順"
     else
       @foods = Food.all.order(deadline_time: :asc)
+      @sort_neme = "並び替え"
     end
   end
 

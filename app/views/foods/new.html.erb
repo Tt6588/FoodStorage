@@ -43,7 +43,7 @@
 
     <div class="form-group row mt-1">
       <div class="col-md"><%= link_to " -  食材一覧へ  - ", foods_path, class: "btn btn-outline-dark ml-4 btn-block mt-1" %></div>
-      <div class="col-md"><%= f.submit '作成', class: "btn btn-outline-success btn-block mt-1" %></div>
+      <div class="col-md"><%= f.submit '作成', class: "btn btn-outline-success btn-block mt-1", data:{ confirm: '入力した内容で登録します。よろしいですか？', cancel: '取り消す',commit: '登録'}, title: '登録確認' %></div>
     </div>
   <% end %>
   </div>
