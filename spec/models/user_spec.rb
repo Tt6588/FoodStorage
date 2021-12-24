@@ -21,7 +21,7 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       end
       it '15文字以下であること、15文字は可' do
         user.name = Faker::Lorem.characters(number: 15)
-        is_expected.to eq false
+        is_expected.to eq true
       end
       it '15文字以下であること、16文字以上は不可' do
         user.name = Faker::Lorem.characters(number: 16)
