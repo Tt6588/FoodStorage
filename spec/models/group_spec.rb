@@ -2,75 +2,31 @@
 
 require 'rails_helper'
 
-RSpec.describe 'foodモデルのテスト', type: :model do
+RSpec.describe 'groupモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
-    subject { food.valid? }
+    subject { group.valid? }
 
     let(:user) { create(:user) }
-    let!(:food) { build(:food, user_id: user.id) }
+    let(:group) { create(:group) }
+    let!(:group_user) { create(:group_user, user: user, group: group) }
+    let(:other_group) { create(:group) }
+    let!(:other_group_user) { create(:group_user, user: user, group: group) }
 
-    context 'food_name カラム' do
+    context 'name カラム' do
       it '空欄は不可であること' do
-        food.food_name = ''
+        group.name = ''
         is_expected.to eq false
       end
-    end
-    context 'detail カラム' do
-      it '空欄は不可であること' do
-        food.detail = ''
-        is_expected.to eq false
-      end
-    end
-    context 'genre カラム' do
-      it '空欄は不可であること' do
-        food.genre = ''
-        is_expected.to eq false
-      end
-    end
-    context 'quantity カラム' do
-      it '空欄は不可であること' do
-        food.quantity = ''
-        is_expected.to eq false
-      end
-    end
-    context 'deadline_time カラム' do
-      it '空欄は不可であること' do
-        food.deadline_time = ''
-        is_expected.to eq false
-      end
-    end
-
-    context 'food_name カラム' do
-      it '15文字以下であること、15文字は可' do
-        food.food_name = Faker::Lorem.characters(number: 15)
+      it '9文字以下であること、9文字は可' do
+        group.name = Faker::Lorem.characters(number: 9)
         is_expected.to eq true
       end
-      it '15文字以下であること、16文字以上は不可' do
-        food.food_name = Faker::Lorem.characters(number: 16)
+      it '9文字以下であること、10文字以上は不可' do
+        group.name = Faker::Lorem.characters(number: 10)
         is_expected.to eq false
       end
-    end
-    context 'detail カラム' do
-      it '300文字以下であること、300文字は可' do
-        food.detail = Faker::Lorem.characters(number: 300)
-        is_expected.to eq true
-      end
-    end
-    context 'detail カラム' do
-      it '300文字以下であること、301文字以上は不可' do
-        food.detail = Faker::Lorem.characters(number: 301)
-        is_expected.to eq false
-      end
-    end
-    context 'genre カラム' do
-      it '15文字以下であること、15文字は可' do
-        food.genre = Faker::Lorem.characters(number: 15)
-        is_expected.to eq true
-      end
-    end
-    context 'genre カラム' do
-      it '15文字以下であること、16文字以上は不可' do
-        food.genre = Faker::Lorem.characters(number: 16)
+      it '一意性があること' do
+        group.name = other_group.name
         is_expected.to eq false
       end
     end
@@ -78,8 +34,23 @@ RSpec.describe 'foodモデルのテスト', type: :model do
 
   describe 'アソシエーションのテスト' do
     context 'Userモデルとの関係' do
-      it 'N:1となっている' do
-        expect(Food.reflect_on_association(:user).macro).to eq :belongs_to
+      it '1:Nとなっている' do
+        expect(Group.reflect_on_association(:users).macro).to eq :has_many
+      end
+    end
+    context 'Group_Usersモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(Group.reflect_on_association(:group_users).macro).to eq :has_many
+      end
+    end
+    context 'Share_Foodsモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(Group.reflect_on_association(:share_foods).macro).to eq :has_many
+      end
+    end
+    context 'Share_Commentsモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(Group.reflect_on_association(:share_comments).macro).to eq :has_many
       end
     end
   end
