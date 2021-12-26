@@ -8,7 +8,7 @@ RSpec.describe 'Comment モデルのテスト', type: :model do
 
     let(:user) { create(:user) }
     let(:food) { create(:food, user_id: user.id) }
-    let!(:comment) { build(:comment, food_id: food.id) }
+    let!(:comment) { build(:comment, user_id: user.id, food_id: food.id) }
 
     context 'comment カラム' do
       it '空欄は不可であること' do
