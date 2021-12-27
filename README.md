@@ -40,15 +40,15 @@
 
 ## 設計書
 
-[ER図](/app/assets/images/ER.png)
+[ER図](/app/assets/images/ER-2.png)
 
 [テーブル定義書](https://docs.google.com/spreadsheets/d/10FmZDkOiWIvb3mdCN1hfG8qYrdeHzf3wynwkFd6s2ow/edit?usp=sharing)
 
-[画面遷移図](/app/assets/images/画面遷移図.png)
+[画面遷移図](/app/assets/images/画面遷移図-2.png)
 
 [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1EfPtUPdA65VMK72zdlf8qvu-TWrp4t0X-Fz3iCPdUF0/edit?usp=sharing)
 
-[フレームワーク](/app/assets/images/WF.pdf)
+[フレームワーク 初期イメージ](/app/assets/images/WF.pdf)
 
 
 ## チャレンジ要素一覧
