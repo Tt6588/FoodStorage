@@ -64,5 +64,5 @@
 - IDE：Cloud9
 
 ## 使用素材
-
-- 自分で撮影した写真
+- [ロゴ](https://www.designevo.com)
+- 自分で撮影した写真・動画
