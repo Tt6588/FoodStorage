@@ -28,14 +28,19 @@ class ShareFoodsController < ApplicationController
     #ソート機能
     if params[:sort_update1]
       @share_foods = ShareFood.latest1
+      @sort_neme = "期限-古い順"
     elsif params[:sort_update2]
       @share_foods = ShareFood.latest2
+      @sort_neme = "期限-新しい順"
     elsif params[:sort_update3]
       @share_foods = ShareFood.latest3
+      @sort_neme = "作成-古い順"
     elsif params[:sort_update4]
       @share_foods = ShareFood.latest4
+      @sort_neme = "作成-新しい順"
     else
       @share_foods = ShareFood.all.order(deadline_time: :asc)
+      @sort_neme = "並び替え"
     end
   end
 

@@ -3,7 +3,7 @@
   <div><%= render "layouts/member-button", list: @group %></div>
   <div><%= link_to " -  食糧庫へ  - ", new_group_share_food_path, class: "btn btn-outline-primary ml-4" %></div>
   <div class="col dropdown">
-    <button type="button" id="dropdown1" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">並び順<%= @sort_neme %></button>
+    <button type="button" id="dropdown1" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= @sort_neme %></button>
     <div class="dropdown-menu" aria-labelledby="dropdown1">
       <div><%= link_to '期限-古い順', group_share_foods_path(@group.id, sort_update1: "true"), class: "btn btn-outline-secondary btn-block btn-lg" %></div>
       <div><%= link_to '期限-新しい順', group_share_foods_path(@group.id, sort_update2: "true"), class: "btn btn-outline-secondary btn-block btn-lg" %></div>
