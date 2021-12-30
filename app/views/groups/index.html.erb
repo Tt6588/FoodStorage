@@ -27,8 +27,8 @@
           <!--参加しているグループがあるかの判断-->
           <% if list.user_ids.include?(current_user.id) %>
             <div class="row shadow mt-2 rounded border border-secondary-20 mr-1 mt-2 ml-1">
-              <div class="col mt-1 mb-1">
-                <%= render "layouts/member-button", list: list %>
+              <div class="col mt-1 mb-1 btn btn-sm btn-block">
+                <%= list.name %> <span class="badge badge-secondary"><%= list.user_ids.count %></span>
               </div>
 
               <!--グループユーザーかの判断-->
