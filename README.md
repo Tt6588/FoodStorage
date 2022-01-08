@@ -4,7 +4,7 @@
 
 |  サイトリンク  |
 | ---- |
-| [FoodStorage](http://52.193.225.255/) |
+| [FoodStorage](https://foodstorage.work) |
 
 -テストアカウント-
 |  メールアドレス  | パス |
