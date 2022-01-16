@@ -1,27 +1,27 @@
 class ShareFoodsController < ApplicationController
 
   before_action :authenticate_user!
-    before_action :correct_share_food,only: [:edit, :show, :new, :index]
+  before_action :correct_share_food,only: [:edit, :show, :new, :index]
+  
+  before_action :share_food_find, only: [:show, :edit, :update, :destroy]
+  before_action :group_find, only: [:new, :create, :index, :show, :edit, :update]
 
   def new
-    @group = Group.find(params[:group_id])
     @share_food = ShareFood.new
   end
 
   def create
-    @group = Group.find(params[:group_id])
     @share_food = ShareFood.new(share_food_params)
     @share_food.group_id = @group.id
     if @share_food.save
-                                          # binding.pry
-      redirect_to new_group_share_food_path, notice: '食材を追加しました'#"/groups/#{@group.id}/share_foods/#{@share_food.id}" 詳細画面遷移から変更
+      redirect_to new_group_share_food_path, notice: '食材を追加しました'
+      #"/groups/#{@group.id}/share_foods/#{@share_food.id}" 詳細画面遷移から変更
     else
       redirect_to new_group_share_food_path, alert: '食材を登録出来ませんでした'
     end
   end
 
   def index
-    @group = Group.find(params[:group_id])
     @share_food_addition = ShareFood.where(group_id: @group.id)
     @share_foods_none = "食材を追加してください"
 
@@ -45,19 +45,13 @@ class ShareFoodsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:group_id])
-    @share_food = ShareFood.find(params[:id])
     @share_comment = ShareComment.new
   end
 
   def edit
-    @group = Group.find(params[:group_id])
-    @share_food = ShareFood.find(params[:id])
   end
 
   def update
-    @group = Group.find(params[:group_id])
-    @share_food = ShareFood.find(params[:id])
     if @share_food.update(share_food_params)
       redirect_to "/groups/#{@group.id}/share_foods/#{@share_food.id}", notice: '食材を更新しました'
     else
@@ -66,7 +60,6 @@ class ShareFoodsController < ApplicationController
   end
 
   def destroy
-    @share_food = ShareFood.find(params[:id])
     if @share_food.destroy
       redirect_to group_share_foods_path, notice: '食材を削除しました'
     else
@@ -87,6 +80,14 @@ class ShareFoodsController < ApplicationController
 
   def share_food_params
     params.require(:share_food).permit(:food_name, :detail, :image, :genre, :quantity, :deadline_time)
+  end
+  
+  def share_food_find
+    @share_food = ShareFood.find(params[:id])
+  end
+  
+  def group_find
+    @group = Group.find(params[:group_id])
   end
 
 end
