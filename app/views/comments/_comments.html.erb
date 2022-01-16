@@ -1,12 +1,6 @@
 
   <% food.comments.each do |comment| %>
     <div class="row rounded border shadow-sm text-wrap">
-
-      <!--<div class="col-1">-->
-      <!--  <= attachment_image_tag @food, :image, :fill, 50, 50, class:" img-fluid img-thumbnail shadow" %> -->
-      <!--</div>-->
-      <!--<div><= time_ago_in_words(comment.created_at) %></div>-->
-
       <div class="col-1">
         <%= comment.created_at.strftime('%m/%d') %>
       </div>
@@ -14,10 +8,10 @@
       <!--CSSに適応させるためPタグ使用-->
         <p><%= comment.comment %></p>
       </div>
-        <% if comment.user == current_user %>
+      <% if comment.user == current_user %>
         <div class="col-1">
           <%= link_to "削除", food_comment_path(comment.food, comment), method: :delete, remote: true, data:{ confirm: '本当に削除しますか？', cancel: '取り消す',commit: '削除'}, title: '削除確認', class:"btn btn-outline-danger btn-sm mt-1 mb-1" %>
         </div>
-        <% end %>
+      <% end %>
     </div>
   <% end %>
