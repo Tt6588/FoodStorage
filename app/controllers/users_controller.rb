@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
   
   before_action :authenticate_user!
+  before_action :user_find, only: [:show, :edit, :update, :correct_user]
   before_action :correct_user,only: [:edit]
-  
-  before_action :user_find, only: [:show, :edit, :update]
   
   def show
     @group_lists = Group.all
@@ -23,7 +22,6 @@ class UsersController < ApplicationController
   end
   
   def correct_user
-    @user = User.find(params[:id])
     unless @user.id == current_user.id
       redirect_to user_path(@user.id)
     end

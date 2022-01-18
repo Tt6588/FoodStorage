@@ -1,9 +1,9 @@
 class GroupsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :group_find, only: [:show, :edit, :update, :correct_group]
   before_action :correct_group,only: [:edit]
 
-  before_action :group_find, only: [:show, :edit, :update]
 
   def index
     index_view
@@ -64,7 +64,6 @@ class GroupsController < ApplicationController
   end
 
   def correct_group
-    @group = Group.find(params[:id])
     unless @group.owner_id == current_user.id
       redirect_to groups_path
     end

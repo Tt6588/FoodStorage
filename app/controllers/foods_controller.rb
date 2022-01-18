@@ -1,9 +1,9 @@
 class FoodsController < ApplicationController
   
   before_action :authenticate_user!
+  before_action :food_find, only: [:show, :edit, :update, :destroy, :correct_food]
   before_action :correct_food,only: [:edit, :show]
   
-  before_action :food_find, only: [:show, :edit, :update, :destroy]
 
   def new
     @user = current_user
@@ -67,7 +67,6 @@ class FoodsController < ApplicationController
   end
   
   def correct_food
-    @food = Food.find(params[:id])
     unless @food.user.id == current_user.id
       redirect_to foods_path
     end
