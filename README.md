@@ -2,10 +2,6 @@
 
 ![](/app/assets/images/logo2.PNG)
 
-|  サイトリンク  |
-| ---- |
-| [FoodStorage](https://foodstorage.work) |
-
 -テストアカウント-
 |  メールアドレス  | パス |
 | ---- | ---- |
